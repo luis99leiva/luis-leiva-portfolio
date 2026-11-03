@@ -208,14 +208,56 @@
   }
 
   // Contact form opens the visitor's email app (GitHub Pages has no server)
+  // Contact form: sends through Web3Forms straight to the inbox.
+  // Paste the access key from web3forms.com here; while it is empty the form falls back to opening the email app.
+  var W3F_KEY = '';
+  var MAIL = '<a href="mailto:luis99leiva@gmail.com">luis99leiva@gmail.com</a>';
   document.querySelectorAll('[data-mailto]').forEach(function (form) {
+    var note = form.querySelector('.form-note');
+    var btn = form.querySelector('.submit');
+    var label = btn && btn.firstChild;          // the "Send message" text before the arrow icon
+    var say = function (html) { if (note) note.innerHTML = html; };
+    if (W3F_KEY) {
+      say('Goes straight to my inbox, or write to ' + MAIL);
+      if (note) note.setAttribute('aria-live', 'polite');
+      // hidden spam trap: people never see or tick it, bots do
+      var trap = document.createElement('input');
+      trap.type = 'checkbox'; trap.name = 'botcheck'; trap.tabIndex = -1;
+      trap.setAttribute('aria-hidden', 'true'); trap.style.display = 'none';
+      form.appendChild(trap);
+    }
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var v = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
       var topic = form.querySelector('[name="topic"]:checked');
       var subject = 'Portfolio inquiry' + (topic ? ': ' + topic.value : '') + (v('name') ? ' from ' + v('name') : '');
-      var body = v('message') + '\n\n' + v('name') + (v('email') ? '\n' + v('email') : '');
-      window.location.href = 'mailto:luis99leiva@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.trim());
+      if (!W3F_KEY) {
+        var body = v('message') + '\n\n' + v('name') + (v('email') ? '\n' + v('email') : '');
+        window.location.href = 'mailto:luis99leiva@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.trim());
+        return;
+      }
+      if (btn.disabled) return;
+      btn.disabled = true;
+      label.data = 'Sending… ';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: W3F_KEY, subject: subject, from_name: 'Portfolio: ' + v('name'),
+          name: v('name'), email: v('email'), topic: topic ? topic.value : '', message: v('message'),
+          botcheck: form.querySelector('[name="botcheck"]').checked
+        })
+      }).then(function (r) { return r.json(); }).then(function (res) {
+        if (!res.success) throw new Error(res.message);
+        form.reset();
+        label.data = 'Message sent ';
+        say('Thanks, it&rsquo;s in my inbox. I usually reply within a couple of working days.');
+        setTimeout(function () { label.data = 'Send message '; btn.disabled = false; }, 4000);
+      }).catch(function () {
+        label.data = 'Send message ';
+        btn.disabled = false;
+        say('That didn&rsquo;t go through. Please try again, or write to ' + MAIL);
+      });
     });
   });
 
