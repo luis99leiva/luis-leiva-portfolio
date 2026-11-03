@@ -210,7 +210,7 @@
   // Contact form opens the visitor's email app (GitHub Pages has no server)
   // Contact form: sends through Web3Forms straight to the inbox.
   // Paste the access key from web3forms.com here; while it is empty the form falls back to opening the email app.
-  var W3F_KEY = '';
+  var W3F_KEY = '48c4807e-c582-4b98-981a-0196c48a3b49';
   var MAIL = '<a href="mailto:luis99leiva@gmail.com">luis99leiva@gmail.com</a>';
   document.querySelectorAll('[data-mailto]').forEach(function (form) {
     var note = form.querySelector('.form-note');
