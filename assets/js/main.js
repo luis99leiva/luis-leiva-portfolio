@@ -2,6 +2,14 @@
 (function () {
   document.documentElement.classList.remove('no-js');
 
+  // Paragraphs: a no-break space between the last two words, so no line ends up with one word alone
+  var glue = function (p) {
+    var tw = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n, last = null;
+    while ((n = tw.nextNode())) if (/\S/.test(n.data)) last = n;
+    if (last) last.data = last.data.replace(/(\S)[ \t\n\r]+(\S+\s*)$/, '$1 $2');
+  };
+  document.querySelectorAll('p').forEach(glue);
+
   // Mobile menu
   var btn = document.querySelector('.menu-btn');
   if (btn) btn.addEventListener('click', function () {
@@ -170,6 +178,7 @@
       setTimeout(function () {
         title.textContent = it.getAttribute('data-title');
         desc.textContent = it.getAttribute('data-desc');
+        glue(desc);
         swap.classList.remove('out');
       }, 200);
     };
