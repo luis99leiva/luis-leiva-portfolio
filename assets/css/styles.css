@@ -222,6 +222,8 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
 /* ---------- media / photography ---------- */
 
 .photo { position: relative; overflow: hidden; border-radius: 28px; background: var(--chip); isolation: isolate; }
+/* Safari drops the rounded clip while a child animates; a mask keeps the corners round */
+.photo, .hero-media { -webkit-mask-image: linear-gradient(#000 0 0); mask-image: linear-gradient(#000 0 0); }
 .photo > img.bg {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
   transition: transform .8s var(--ease), filter .8s var(--ease);
