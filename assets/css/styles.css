@@ -351,9 +351,9 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .steps-path path {
   fill: none; stroke: #3a2e24; stroke-width: 1.5; stroke-linecap: round;
   stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0);
-  transition: stroke-dashoffset 1.6s var(--ease-soft) .2s;
+  transition: stroke-dashoffset 1.8s var(--ease-soft);
 }
-.steps.in .steps-path path { stroke-dashoffset: 0; }
+.steps.drawn .steps-path path { stroke-dashoffset: 0; }
 .step .circle {
   display: grid; place-items: center;
   width: 56px; height: 56px; border-radius: 50%;
@@ -661,8 +661,9 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 .steps.reveal { transform: none; }
 .steps.reveal .step, .reveal .numbered li { opacity: 0; transform: translateX(-30px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .steps.reveal.in .step, .reveal.in .numbered li { opacity: 1; transform: none; }
-.steps.reveal .step:nth-child(3) { transition-delay: .5s; }
-.steps.reveal .step:nth-child(4) { transition-delay: 1s; }
+.steps.has-path:not(.drawn) .step { opacity: 0; transform: translateX(-30px); }
+.steps.reveal .step:nth-child(3) { transition-delay: .6s; }
+.steps.reveal .step:nth-child(4) { transition-delay: 1.2s; }
 
 /* quotes rise in letter by letter */
 .chars .cw { display: inline-block; white-space: nowrap; }

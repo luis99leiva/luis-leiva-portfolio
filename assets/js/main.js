@@ -103,11 +103,11 @@
         var s = c.offsetParent;
         return { x: s.offsetLeft + c.offsetLeft + c.offsetWidth / 2, y: s.offsetTop + c.offsetTop + c.offsetHeight / 2, r: c.offsetHeight / 2 };
       });
-      var d = '';
+      // one unbroken stroke through every circle's center; the circles sit on top of it
+      var d = pts.length ? 'M' + pts[0].x + ' ' + pts[0].y : '';
       for (var i = 0; i < pts.length - 1; i++) {
-        var a = pts[i], b = pts[i + 1], y0 = a.y + a.r, y1 = b.y - b.r, h = y1 - y0;
-        var sw = (i % 2 ? -1 : 1) * 14;
-        d += 'M' + a.x + ' ' + y0 + 'C' + (a.x + sw) + ' ' + (y0 + h * .45) + ' ' + (b.x - sw) + ' ' + (y1 - h * .45) + ' ' + b.x + ' ' + y1;
+        var a = pts[i], b = pts[i + 1], h = b.y - a.y, sw = 14;
+        d += 'C' + (a.x + sw) + ' ' + (a.y + h * .45) + ' ' + (b.x - sw) + ' ' + (b.y - h * .45) + ' ' + b.x + ' ' + b.y;
       }
       path.setAttribute('d', d);
       path.style.setProperty('--len', d ? Math.ceil(path.getTotalLength()) + 'px' : '0');
@@ -115,6 +115,13 @@
     draw();
     if ('ResizeObserver' in window) new ResizeObserver(draw).observe(ol);
     else window.addEventListener('resize', draw);
+    // the line draws only once the list is well into view, not when its top edge first peeks in
+    if ('IntersectionObserver' in window) {
+      var seen = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { ol.classList.add('drawn'); seen.disconnect(); }
+      }, { rootMargin: '0px 0px -35% 0px' });
+      seen.observe(ol);
+    } else ol.classList.add('drawn');
   });
 
   // Reveal on scroll; blocks that enter together are staggered top to bottom, left to right
