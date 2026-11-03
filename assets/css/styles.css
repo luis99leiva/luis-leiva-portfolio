@@ -36,7 +36,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 body {
   margin: 0;
   background: var(--page);
@@ -114,22 +114,22 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
   overflow: hidden;
   transition: background-color .4s var(--ease-soft), transform .4s var(--ease), box-shadow .4s var(--ease-soft);
 }
-.btn:hover { transform: translateY(-2px); }
+@media (hover: hover) { .btn:hover { transform: translateY(-2px); } }
 .btn:active { transform: translateY(0) scale(.98); transition-duration: .15s; }
 .btn-dark { background: var(--ink); color: var(--soft); }
-.btn-dark:hover { background: #3a2414; }
+@media (hover: hover) { .btn-dark:hover { background: #3a2414; } }
 .btn-light { background: var(--chip); color: var(--ink); }
-.btn-light:hover { background: var(--chip-hover); }
+@media (hover: hover) { .btn-light:hover { background: var(--chip-hover); } }
 .btn-sm { height: 37px; padding: 0 16px; font-size: 14px; line-height: 21px; }
 .btn-white { background: var(--white); color: var(--ink); }
-.btn-white:hover { background: var(--soft); }
+@media (hover: hover) { .btn-white:hover { background: var(--soft); } }
 .btn .dot-ico {
   display: grid; place-items: center;
   width: 16px; height: 16px; border-radius: 50%;
   background: var(--ink); color: var(--soft);
 }
 .btn .dot-ico svg { width: 9px; height: 9px; transition: transform .4s var(--ease); }
-.btn:hover .dot-ico svg { transform: translateX(2px); }
+@media (hover: hover) { .btn:hover .dot-ico svg { transform: translateX(2px); } }
 /* label stays put on hover; the duplicate copy from the old rolling effect is hidden */
 .btn .roll { display: block; }
 .btn .roll span[aria-hidden] { display: none; }
@@ -149,7 +149,8 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
   padding: 0; border-radius: 8px;
   transition: color .25s;
 }
-.nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--muted); }
+.nav-links a[aria-current="page"] { color: var(--muted); }
+@media (hover: hover) { .nav-links a:hover { color: var(--muted); } }
 .brand { font-family: var(--serif); font-size: 32px; line-height: 35px; letter-spacing: -0.025em; color: #000; white-space: nowrap; }
 .nav-cta { justify-self: end; }
 .menu-btn {
@@ -315,7 +316,7 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .svc .t-h2 { white-space: nowrap; }
 .svc sup { align-self: flex-start; font-size: 14px; line-height: 1; font-weight: 500; margin-top: 18px; letter-spacing: -0.01em; }
 .svc[aria-selected="true"] { background: var(--band); color: var(--ink); padding-left: 32px; }
-.svc:not([aria-selected="true"]):hover { color: var(--ink); }
+@media (hover: hover) { .svc:not([aria-selected="true"]):hover { color: var(--ink); } }
 .svc-panel .photo { height: 324px; }
 .svc-panel .t-title { margin-top: 24px; }
 .svc-panel .t-body { margin-top: 4px; min-height: 72px; }
@@ -365,7 +366,7 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .mini .num { font-family: var(--serif); font-size: 70px; line-height: 77px; letter-spacing: -0.035em; }
 .mini .t-title { margin-top: 8px; color: #000; }
 .highlight .photo { height: 556px; }
-.highlight a.photo:hover > img.bg { transform: scale(1.06); filter: blur(6px); }
+@media (hover: hover) { .highlight a.photo:hover > img.bg { transform: scale(1.06); filter: blur(6px); } }
 
 /* ---------- contact block ---------- */
 
@@ -406,7 +407,7 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .chip span::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--soft); transition: background-color .2s, box-shadow .2s; }
 .chip input:checked + span::before { background: var(--ink); box-shadow: 0 0 0 2px var(--soft); }
 .chip input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
-.chip:hover span { background: var(--chip-hover); }
+@media (hover: hover) { .chip:hover span { background: var(--chip-hover); } }
 .submit {
   height: 67px; border: 0; border-radius: 50px; cursor: pointer;
   background: var(--ink); color: var(--white);
@@ -414,7 +415,7 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   transition: background-color .3s;
 }
-.submit:hover { background: #3a2414; }
+@media (hover: hover) { .submit:hover { background: #3a2414; } }
 .submit svg { width: 14px; height: 14px; }
 .form-note { text-align: center; font-size: 12px; line-height: 18px; color: var(--muted); }
 .form-note a { color: var(--ink); font-weight: 500; }
@@ -426,14 +427,14 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .footer .tagline { margin-top: 12px; font-size: 18px; line-height: 27px; color: var(--muted); }
 .socials { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
 .socials a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--soft); transition: transform .3s var(--ease); }
-.socials a:hover { transform: translateY(-2px); }
+@media (hover: hover) { .socials a:hover { transform: translateY(-2px); } }
 .socials svg { width: 15px; height: 15px; }
 .footer-flower { width: 323px; margin: 72px auto 0; }
 .footer-cols { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; max-width: 680px; margin: 64px auto 0; text-align: left; }
 .footer-cols h4 { font-size: 16px; line-height: 24px; font-weight: 500; }
 .footer-cols ul { margin-top: 16px; display: grid; gap: 16px; }
 .footer-cols a { font-size: 14px; line-height: 21px; color: var(--muted); transition: color .2s; }
-.footer-cols a:hover { color: var(--ink); }
+@media (hover: hover) { .footer-cols a:hover { color: var(--ink); } }
 .footer-bottom {
   display: flex; justify-content: space-between; gap: 16px;
   max-width: 866px; margin: 72px auto 0; padding-top: 24px;
@@ -465,12 +466,12 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
   font-size: 14px; line-height: 21px; font-weight: 500;
   transition: background-color .25s;
 }
-.back-pill:hover { background: var(--white); }
+@media (hover: hover) { .back-pill:hover { background: var(--white); } }
 .next-dot {
   display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
   background: var(--band); color: var(--ink); transition: background-color .25s;
 }
-.next-dot:hover { background: var(--white); }
+@media (hover: hover) { .next-dot:hover { background: var(--white); } }
 .next-dot svg { width: 12px; height: 12px; }
 .cs-cover .title { padding: 0 70px 48px; }
 .cs-cover .t-lead { color: rgb(255 255 255 / .8); margin-top: 4px; max-width: 520px; }
@@ -569,7 +570,7 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 figcaption.cap { margin-top: 14px; font-size: 12px; line-height: 18px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 .jump { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
-.jump:hover { color: var(--ink); }
+@media (hover: hover) { .jump:hover { color: var(--ink); } }
 
 .pull { padding: 140px 0 0; text-align: center; }
 .pull p { max-width: 900px; margin: 0 auto; font-family: var(--serif); font-size: 44px; line-height: 1.15; letter-spacing: -0.03em; }
@@ -777,7 +778,7 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 
 .site-header.on-page { background: var(--page); }
 .brand, .mini .t-title { color: var(--ink); }
-.btn-dark:hover, .submit:hover { background: #ffffff; }
+@media (hover: hover) { .btn-dark:hover, .submit:hover { background: #ffffff; } }
 .btn-dark { box-shadow: 0 8px 24px -12px rgb(243 234 223 / .35); }
 .btn-white { color: #2b180a; }
 .submit { background: var(--ink); color: var(--soft); }
