@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System case study · Luis Leiva</title>
+<meta name="description" content="The first design system for Tu Financiera: 183 variables, 28 styles and 216 components, adopted by design and development.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Design System case study · Luis Leiva">
+<meta property="og:description" content="The first design system for Tu Financiera: 183 variables, 28 styles and 216 components, adopted by design and development.">
+<meta property="og:image" content="https://luis99leiva.github.io/luis-leiva-portfolio/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#18120d">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Halant:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header on-page">
+  <div class="nav">
+    <nav class="nav-links" aria-label="Main"><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+    <a class="brand" href="index.html" aria-label="Luis Leiva, home">Luis Leiva</a>
+    <a class="btn btn-dark btn-sm nav-cta" href="contact.html"><span class="roll"><span>Get in touch</span><span aria-hidden="true">Get in touch</span></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+  <nav class="menu" id="menu" aria-label="Mobile"><a class="menu-link" href="index.html">Home</a><a class="menu-link" href="projects.html">Projects</a><a class="menu-link" href="about.html">About</a><a class="menu-link" href="contact.html">Contact</a><a class="btn btn-dark" href="contact.html"><span class="roll"><span>Get in touch</span><span aria-hidden="true">Get in touch</span></span></a></nav>
+</header>
+<main id="main">
+<section>
+  <div class="wrap">
+    <div class="photo cs-cover reveal"><img class="bg" src="assets/img/cover-ds.webp" alt="" fetchpriority="high">
+      <div class="over bar"><a class="back-pill" href="projects.html">Back</a><a class="next-dot" href="fitflex.html" aria-label="Next project: FitFlex"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="over title"><p class="cs-kicker">Case study &middot; 02 &middot; Design system</p><h1 class="t-detail split">Design System</h1><p class="t-lead">The first design system for Tu Financiera, adopted across design and development.</p></div>
+    </div>
+  </div>
+</section>
+<div class="wrap">
+  <div class="cs-intro reveal">
+    <p class="t-h3">One shared language of tokens, styles, and components, built from scratch during the redesign of an app serving 80,000+ active users (25,000 before launch).</p>
+    <dl class="cs-meta">
+      <div><dt>Role</dt><dd>Product Designer<span>Proposed, built and owns it</span></dd></div>
+      <div><dt>Company</dt><dd>Tu Financiera<span>Fintech, Paraguay</span></dd></div>
+      <div><dt>Timeline</dt><dd>Oct 2024 &ndash; now<span>Built during the app redesign</span></dd></div>
+      <div><dt>Tools</dt><dd>Figma<span>Variables, styles, components</span></dd></div>
+      <div><dt>Adoption</dt><dd>2 teams<span>Design and 4 developers</span></dd></div>
+    </dl>
+  </div>
+</div>
+
+<!-- 00 · The result, first -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>00</b>The result, first</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Outcome</span>
+        <h2 class="t-h2">From screens built by hand <span class="mute">to one source both teams trust.</span></h2>
+        <p class="t-big">Tu Financiera&rsquo;s first design system became the default way to build the app, not an optional library. Designers pull from it hundreds of times a week, and developers build from the same names and values.</p>
+      </div>
+      <div class="results three reveal">
+        <div class="result"><div class="num">216</div><p>Components</p></div>
+        <div class="result"><div class="num">500+</div><p>Component inserts every week</p></div>
+        <div class="result"><div class="num">183</div><p>Design variables</p></div>
+      </div>
+      <a class="jump" href="#architecture">See how it&rsquo;s built: chapter 03 &darr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- 01 · Context -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>01</b>Context</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Why now</span>
+        <h2 class="t-h2">A full redesign, <span class="mute">with no shared foundation.</span></h2>
+        <p class="t-big">The system started alongside the Tu Financiera app redesign: 14 new flows designed by a team of three for an app used by tens of thousands of people. Without a shared foundation, every new flow would add its own version of the same buttons, inputs and cards.</p>
+        <a class="jump" href="tufinanciera.html">Read the Tu Financiera app case study &rarr;</a>
+      </div>
+      <div class="beat reveal">
+        <span class="label">Starting point</span>
+        <h2 class="t-h2">No UI kit, <span class="mute">and my idea to build one.</span></h2>
+        <p class="t-big">There was no UI kit or style guide before. The interface had many variations and had lost its consistency. The system was my idea: I researched it, proposed it, built it, and keep scaling it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 · The problem -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>02</b>The problem</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Before the system</span>
+        <h2 class="t-h2">Every screen <span class="mute">was assembled by hand.</span></h2>
+        <p class="t-big">The same button, input, or card drifted in color, spacing, and size from one flow to the next. Developers had to guess, or ask for values that lived only in a designer&rsquo;s file.</p>
+      </div>
+      <div class="beat reveal">
+        <span class="label">Pain points</span>
+        <h2 class="t-h2">Inconsistent for users, <span class="mute">slow for the team.</span></h2>
+        <ol class="numbered">
+          <li><span>01</span>The same element built five different ways</li>
+          <li><span>02</span>No shared vocabulary between design and code</li>
+          <li><span>03</span>Handoffs stalled on values no one could point to</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="pull reveal"><p>The hard part wasn&rsquo;t drawing the components. <span class="mute">It was getting two teams to trust one source and build from it.</span></p></div>
+</div>
+
+<!-- 03 · Architecture -->
+<div class="wrap" id="architecture">
+  <div class="row chapter">
+    <div class="row-label"><b>03</b>Architecture</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Structure</span>
+        <h2 class="t-h2">Three layers, <span class="mute">so one change updates everything above it.</span></h2>
+        <p class="t-big">Each layer builds on the one below. Change a value at the base and every style and component that uses it updates predictably, in design and in code.</p>
+        <div class="path"><span class="tag">183 variables</span><i>&rarr;</i><span class="tag">28 styles</span><i>&rarr;</i><span class="tag">216 components</span></div>
+      </div>
+      <div class="beat reveal">
+        <span class="label">Layer 01 &middot; Variables</span>
+        <h2 class="t-h2">Name the intent, <span class="mute">not the value.</span></h2>
+        <p class="t-big">Variables hold the raw decisions: color, typography, spacing, and radius. Brand values like BlueDark or PositiveGreen live in a global collection, and semantic tokens such as <em>primary-text</em>, <em>buttons</em>, or <em>action-green</em> point to them. A screen asks for &ldquo;primary text&rdquo;, never for a hex code.</p>
+        <p class="t-big">Naming by role (background-primary, not &ldquo;light gray&rdquo;) also prepares the next step. The system runs in light mode today, and dark mode will only need new values for the same names.</p>
+      </div>
+      <figure class="fig reveal"><div class="frame dark"><img src="assets/img/ds-variables.webp" alt="Figma variables panel: semantic tokens like primary-text and buttons referencing brand colors" loading="lazy"></div><figcaption class="cap"><b>Fig 03.1</b> Semantic tokens grouped by purpose, each pointing to a brand value.</figcaption></figure>
+      <div class="beat reveal">
+        <span class="label">Layer 02 &middot; Styles</span>
+        <h2 class="t-h2">Repeated decisions <span class="mute">become one click.</span></h2>
+        <p class="t-big">Published styles sit on top of the variables, turning definitions the team used again and again into reusable choices.</p>
+      </div>
+      <figure class="fig reveal"><div class="frame dark"><img src="assets/img/ds-styles.webp" alt="Text styles list" loading="lazy"></div><figcaption class="cap"><b>Fig 03.2</b> Published text styles built on the typography variables.</figcaption></figure>
+      <div class="beat reveal">
+        <span class="label">Layer 03 &middot; Components</span>
+        <h2 class="t-h2">The app&rsquo;s real patterns, <span class="mute">with every state.</span></h2>
+        <p class="t-big">Components assemble styles and tokens into the patterns the app actually uses. Each one ships with its full set of sizes and states, so behavior is the same everywhere it appears.</p>
+        <p class="t-big">What became a component was simple: the elements we used most and rebuilt most often. Fixing a component fixes it everywhere it&rsquo;s used.</p>
+      </div>
+      <div class="fig-grid">
+        <figure class="fig reveal"><div class="frame"><img src="assets/img/ds-buttons.webp" alt="Button documentation in three sizes" loading="lazy"></div><figcaption class="cap"><b>Fig 03.3</b> Buttons in three sizes.</figcaption></figure>
+        <figure class="fig reveal"><div class="frame"><img src="assets/img/ds-inputs.webp" alt="Input field documentation with states" loading="lazy"></div><figcaption class="cap"><b>Fig 03.4</b> Input fields and their states.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 · Adoption -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>04</b>Adoption</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Rollout</span>
+        <h2 class="t-h2">A system only counts <span class="mute">if people use it.</span></h2>
+        <p class="t-big">Every component is documented and synced with developers, so the file and the code describe the same thing. Changes travel with the work, in the same Scrum sprints as the features that need them.</p>
+        <ol class="numbered">
+          <li><span>01</span>Adopted by 2 teams, design and development</li>
+          <li><span>02</span>500+ component inserts every week</li>
+          <li><span>03</span>Components documented and synced with 4 developers in Scrum sprints</li>
+        </ol>
+      </div>
+      <div class="beat reveal">
+        <span class="label">How it grows</span>
+        <h2 class="t-h2">Anyone can ask, <span class="mute">one person approves.</span></h2>
+        <p class="t-big">I introduced the system through annotations in Figma and walkthrough calls. Change requests come from designers, developers, stakeholders and the PM. Designers add them to the system, and I approve them before they&rsquo;re published.</p>
+        <div class="path"><span class="tag">Request</span><i>&rarr;</i><span class="tag">A designer adds it</span><i>&rarr;</i><span class="tag">I approve it</span><i>&rarr;</i><span class="tag">Published for everyone</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 · Impact -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>05</b>Impact</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">Outcome</span>
+        <h2 class="t-h2">The default way <span class="mute">to build.</span></h2>
+        <p class="t-big">The system now underpins the redesigned Tu Financiera app, which launched with an NPS of +73.5 and has grown to more than 80,000 active users.</p>
+      </div>
+      <div class="results reveal">
+        <div class="result"><div class="num">183</div><p>Design variables</p></div>
+        <div class="result"><div class="num">28</div><p>Published styles</p></div>
+        <div class="result"><div class="num">216</div><p>Components</p></div>
+        <div class="result"><div class="num">500+</div><p>Component inserts every week</p></div>
+      </div>
+      <div class="beat reveal">
+        <span class="label">What changed</span>
+        <ol class="numbered">
+          <li><span>01</span>Designers prototype faster</li>
+          <li><span>02</span>Fewer visual bugs reach the app</li>
+          <li><span>03</span>Handoff to developers is faster</li>
+          <li><span>04</span>Products look and behave consistently</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 06 · Reflection -->
+<div class="wrap">
+  <div class="row chapter">
+    <div class="row-label"><b>06</b>Reflection</div>
+    <div class="row-body">
+      <div class="beat reveal">
+        <span class="label">What I learned</span>
+        <h2 class="t-h2">A system is a habit, <span class="mute">not a file.</span></h2>
+      </div>
+      <div class="lessons reveal">
+        <p><b>Make the system the easy path.</b> Consistency only scales when using the system is easier than rebuilding by hand.</p>
+        <p><b>Sync is a routine.</b> Keeping design and code aligned needs a regular rhythm, not a one-time handoff.</p>
+      </div>
+      <div class="lessons reveal">
+        <p><b>Measure before you build.</b> I didn&rsquo;t record how many variations the old UI had, so I can describe the improvement but not prove it with numbers. On my next system, I&rsquo;ll audit first, then track handoff time and visual bugs after.</p>
+      </div>
+      <div class="beat reveal">
+        <span class="label">What&rsquo;s next</span>
+        <p class="t-big">Dark mode. Because tokens are named by role, it means new values for the same names, not a second system.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section"><div class="wrap"><div class="head-center"><span class="pill">More work</span><h2 class="t-h2 split">Also worth a <span class="mute">look.</span></h2></div><div class="cards"><a class="card reveal" href="tufinanciera.html" aria-label="Tu Financiera case study"><div class="photo"><img class="bg" src="assets/img/card-tf.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-tf"><i><b></b><b></b></i>tu financiera</span></div><span class="tag">Fintech</span></div>
+      <div class="card-info"><h3 class="t-title">Tu Financiera</h3><p class="t-body">Mobile banking for a Paraguayan fintech, now fully digital and used by 80,000+ people.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a><a class="card reveal" href="fitflex.html" aria-label="FitFlex case study"><div class="photo"><img class="bg" src="assets/img/card-ff.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-ff">FitFlex</span></div><span class="tag">Concept</span></div>
+      <div class="card-info"><h3 class="t-title">FitFlex</h3><p class="t-body">A concept fitness app that turns solo workouts into shared ones with friends.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div></section><section class="section" id="contact">
+  <div class="wrap contact">
+    <div class="photo contact-card reveal">
+      <img class="bg" src="assets/img/contact.webp" alt="" loading="lazy">
+      <div class="over top">Product Designer at Tu Financiera</div>
+      <div class="over mid"><h2 class="t-h2">Let&rsquo;s build something worth shipping.</h2><p>Briefs, collaborations, or a quick question. I read everything and usually reply within a couple of working days.</p></div>
+      <div class="over bottom"><div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span></div></div></div>
+    </div>
+    <form class="form reveal" data-mailto>
+      <input class="input" name="name" type="text" placeholder="Name*" autocomplete="name" required aria-label="Name">
+      <input class="input" name="email" type="email" placeholder="Email*" autocomplete="email" required aria-label="Email">
+      <fieldset class="fieldset"><legend>What can I help you with?</legend><div class="chips"><label class="chip"><input type="radio" name="topic" value="Design systems" checked><span>Design systems</span></label><label class="chip"><input type="radio" name="topic" value="Prototypes"><span>Prototypes</span></label><label class="chip"><input type="radio" name="topic" value="UX audit"><span>UX audit</span></label><label class="chip"><input type="radio" name="topic" value="User research"><span>User research</span></label><label class="chip"><input type="radio" name="topic" value="Motion design"><span>Motion design</span></label><label class="chip"><input type="radio" name="topic" value="Something else"><span>Something else</span></label></div></fieldset>
+      <textarea class="textarea" name="message" placeholder="Tell me about your project..." required aria-label="Message"></textarea>
+      <button class="submit" type="submit">Send message <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="form-note">Opens your email app with the message ready to send, or write to <a href="mailto:luis99leiva@gmail.com">luis99leiva@gmail.com</a></p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <a class="t-h2" href="index.html">Luis Leiva</a>
+    <p class="tagline">Product &amp; UX/UI designer based in Paraguay.</p>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/luis-leiva-s/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 5.6H1.2V15h2.4V5.6zM2.4 1.2a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM15 9.6c0-2.5-1.3-4.2-3.6-4.2-1.2 0-2 .6-2.4 1.2V5.6H6.6V15H9v-4.9c0-1.2.5-2.2 1.7-2.2 1.1 0 1.5.9 1.5 2.2V15H15V9.6z"/></svg></a>
+      <a href="https://www.behance.net/luisleiva1" target="_blank" rel="noopener" aria-label="Behance"><svg viewBox="0 0 18 12" fill="currentColor" aria-hidden="true"><path d="M5.3 0C7.1 0 8.4.8 8.4 2.6c0 1.1-.6 1.7-1.4 2.1 1.2.3 1.8 1.2 1.8 2.5C8.8 9.3 7.2 10.4 5 10.4H0V0h5.3zM2.2 4.2h2.7c.8 0 1.3-.3 1.3-1.1s-.6-1.1-1.4-1.1H2.2v2.2zm0 4.3h2.9c.9 0 1.5-.4 1.5-1.3s-.6-1.3-1.5-1.3H2.2v2.6zM15.4 1.4h-4.2V.3h4.2v1.1zM17.9 7.5h-5.4c.1 1.2.8 1.8 1.9 1.8.8 0 1.4-.4 1.6-.9h1.8c-.5 1.6-1.8 2.4-3.5 2.4-2.3 0-3.8-1.6-3.8-3.9 0-2.2 1.5-3.9 3.7-3.9 2.4 0 3.8 1.9 3.7 4.5zm-5.4-1.3h3.4c-.1-1-.7-1.6-1.6-1.6-1 0-1.6.6-1.8 1.6z"/></svg></a>
+      <a href="mailto:luis99leiva@gmail.com" aria-label="Email"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="m2 4 6 4.5L14 4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></a>
+    </div>
+    <img class="footer-flower" src="assets/img/flower-footer.webp" alt="" loading="lazy">
+    <div class="footer-cols">
+      <div><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="projects.html">Projects</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Projects</h4><ul><li><a href="tufinanciera.html">Tu Financiera</a></li><li><a href="design-system.html">Design System</a></li><li><a href="fitflex.html">FitFlex</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="mailto:luis99leiva@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/luis-leiva-s/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.behance.net/luisleiva1" target="_blank" rel="noopener">Behance</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; <span data-year>2026</span> Luis Leiva. All rights reserved.</span><span>Designed and built by Luis Leiva</span></div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
