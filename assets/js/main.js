@@ -87,6 +87,36 @@
     requestAnimationFrame(step);
   };
 
+  // Steps: a wavy line joins the numbers, swinging right then left like a hand-drawn stroke
+  document.querySelectorAll('.steps').forEach(function (ol) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    var path = document.createElementNS(NS, 'path');
+    svg.setAttribute('class', 'steps-path');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.appendChild(path);
+    ol.insertBefore(svg, ol.firstChild);
+    ol.classList.add('has-path');
+    var draw = function () {
+      // layout offsets, not screen rects, so the steps' slide-in transform doesn't shift the line
+      var pts = Array.prototype.map.call(ol.querySelectorAll('.circle'), function (c) {
+        var s = c.offsetParent;
+        return { x: s.offsetLeft + c.offsetLeft + c.offsetWidth / 2, y: s.offsetTop + c.offsetTop + c.offsetHeight / 2, r: c.offsetHeight / 2 };
+      });
+      var d = '';
+      for (var i = 0; i < pts.length - 1; i++) {
+        var a = pts[i], b = pts[i + 1], y0 = a.y + a.r, y1 = b.y - b.r, h = y1 - y0;
+        var sw = (i % 2 ? -1 : 1) * 14;
+        d += 'M' + a.x + ' ' + y0 + 'C' + (a.x + sw) + ' ' + (y0 + h * .45) + ' ' + (b.x - sw) + ' ' + (y1 - h * .45) + ' ' + b.x + ' ' + y1;
+      }
+      path.setAttribute('d', d);
+      path.style.setProperty('--len', d ? Math.ceil(path.getTotalLength()) + 'px' : '0');
+    };
+    draw();
+    if ('ResizeObserver' in window) new ResizeObserver(draw).observe(ol);
+    else window.addEventListener('resize', draw);
+  });
+
   // Reveal on scroll; blocks that enter together are staggered top to bottom, left to right
   var targets = document.querySelectorAll('.reveal, .split, .num');
   if ('IntersectionObserver' in window) {
