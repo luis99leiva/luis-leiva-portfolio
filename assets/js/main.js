@@ -32,6 +32,15 @@
         }
       });
     })(el);
+    // the last two words travel together, so a title never ends with one word alone on its line
+    var ws = el.querySelectorAll('.w'), a = ws[ws.length - 2], b = ws[ws.length - 1];
+    if (a && a.parentNode === b.parentNode) {
+      var keep = document.createElement('span');
+      keep.className = 'keep';
+      a.parentNode.insertBefore(keep, a);
+      while (keep.nextSibling !== b) keep.appendChild(keep.nextSibling);
+      keep.appendChild(b);
+    }
   });
 
   // Quotes rise in letter by letter (words stay unbroken)

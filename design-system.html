@@ -57,7 +57,7 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Outcome</span>
-        <h2 class="t-h2">From screens built by hand <span class="mute">to one source both teams trust.</span></h2>
+        <h2 class="t-h2">From screens built by hand <span class="mute">to one source both teams trust</span></h2>
         <p class="t-big">Tu Financiera&rsquo;s first design system became the default way to build the app, not an optional library. Designers pull from it hundreds of times a week, and developers build from the same names and values.</p>
       </div>
       <div class="results three reveal">
@@ -77,13 +77,13 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Why now</span>
-        <h2 class="t-h2">A full redesign, <span class="mute">with no shared foundation.</span></h2>
+        <h2 class="t-h2">A full redesign, <span class="mute">with no shared foundation</span></h2>
         <p class="t-big">The system started alongside the Tu Financiera app redesign: 14 new flows designed by a team of three for an app used by tens of thousands of people. Without a shared foundation, every new flow would add its own version of the same buttons, inputs and cards.</p>
         <a class="jump" href="tufinanciera.html">Read the Tu Financiera app case study &rarr;</a>
       </div>
       <div class="beat reveal">
         <span class="label">Starting point</span>
-        <h2 class="t-h2">No UI kit, <span class="mute">and my idea to build one.</span></h2>
+        <h2 class="t-h2">No UI kit, <span class="mute">and my idea to build one</span></h2>
         <p class="t-big">There was no UI kit or style guide before. The interface had many variations and had lost its consistency. The system was my idea: I researched it, proposed it, built it, and keep scaling it.</p>
       </div>
     </div>
@@ -97,12 +97,12 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Before the system</span>
-        <h2 class="t-h2">Every screen <span class="mute">was assembled by hand.</span></h2>
+        <h2 class="t-h2">Every screen <span class="mute">was assembled by hand</span></h2>
         <p class="t-big">The same button, input, or card drifted in color, spacing, and size from one flow to the next. Developers had to guess, or ask for values that lived only in a designer&rsquo;s file.</p>
       </div>
       <div class="beat reveal">
         <span class="label">Pain points</span>
-        <h2 class="t-h2">Inconsistent for users, <span class="mute">slow for the team.</span></h2>
+        <h2 class="t-h2">Inconsistent for users, <span class="mute">slow for the team</span></h2>
         <ol class="numbered">
           <li><span>01</span>The same element built five different ways</li>
           <li><span>02</span>No shared vocabulary between design and code</li>
@@ -123,26 +123,26 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Structure</span>
-        <h2 class="t-h2">Three layers, <span class="mute">so one change updates everything above it.</span></h2>
+        <h2 class="t-h2">Three layers, <span class="mute">so one change updates everything above it</span></h2>
         <p class="t-big">Each layer builds on the one below. Change a value at the base and every style and component that uses it updates predictably, in design and in code.</p>
         <div class="path"><span class="tag">183 variables</span><i>&rarr;</i><span class="tag">28 styles</span><i>&rarr;</i><span class="tag">216 components</span></div>
       </div>
       <div class="beat reveal">
         <span class="label">Layer 01 &middot; Variables</span>
-        <h2 class="t-h2">Name the intent, <span class="mute">not the value.</span></h2>
+        <h2 class="t-h2">Name the intent, <span class="mute">not the value</span></h2>
         <p class="t-big">Variables hold the raw decisions: color, typography, spacing, and radius. Brand values like BlueDark or PositiveGreen live in a global collection, and semantic tokens such as <em>primary-text</em>, <em>buttons</em>, or <em>action-green</em> point to them. A screen asks for &ldquo;primary text&rdquo;, never for a hex code.</p>
         <p class="t-big">Naming by role (background-primary, not &ldquo;light gray&rdquo;) also prepares the next step. The system runs in light mode today, and dark mode will only need new values for the same names.</p>
       </div>
       <figure class="fig reveal"><div class="frame dark"><img src="assets/img/ds-variables.webp" alt="Figma variables panel: semantic tokens like primary-text and buttons referencing brand colors" loading="lazy"></div><figcaption class="cap"><b>Fig 03.1</b> Semantic tokens grouped by purpose, each pointing to a brand value.</figcaption></figure>
       <div class="beat reveal">
         <span class="label">Layer 02 &middot; Styles</span>
-        <h2 class="t-h2">Repeated decisions <span class="mute">become one click.</span></h2>
+        <h2 class="t-h2">Repeated decisions <span class="mute">become one click</span></h2>
         <p class="t-big">Published styles sit on top of the variables, turning definitions the team used again and again into reusable choices.</p>
       </div>
       <figure class="fig reveal"><div class="frame dark"><img src="assets/img/ds-styles.webp" alt="Text styles list" loading="lazy"></div><figcaption class="cap"><b>Fig 03.2</b> Published text styles built on the typography variables.</figcaption></figure>
       <div class="beat reveal">
         <span class="label">Layer 03 &middot; Components</span>
-        <h2 class="t-h2">The app&rsquo;s real patterns, <span class="mute">with every state.</span></h2>
+        <h2 class="t-h2">The app&rsquo;s real patterns, <span class="mute">with every state</span></h2>
         <p class="t-big">Components assemble styles and tokens into the patterns the app actually uses. Each one ships with its full set of sizes and states, so behavior is the same everywhere it appears.</p>
         <p class="t-big">What became a component was simple: the elements we used most and rebuilt most often. Fixing a component fixes it everywhere it&rsquo;s used.</p>
       </div>
@@ -161,7 +161,7 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Rollout</span>
-        <h2 class="t-h2">A system only counts <span class="mute">if people use it.</span></h2>
+        <h2 class="t-h2">A system only counts <span class="mute">if people use it</span></h2>
         <p class="t-big">Every component is documented and synced with developers, so the file and the code describe the same thing. Changes travel with the work, in the same Scrum sprints as the features that need them.</p>
         <ol class="numbered">
           <li><span>01</span>Adopted by 2 teams, design and development</li>
@@ -171,7 +171,7 @@
       </div>
       <div class="beat reveal">
         <span class="label">How it grows</span>
-        <h2 class="t-h2">Anyone can ask, <span class="mute">one person approves.</span></h2>
+        <h2 class="t-h2">Anyone can ask, <span class="mute">one person approves</span></h2>
         <p class="t-big">I introduced the system through annotations in Figma and walkthrough calls. Change requests come from designers, developers, stakeholders and the PM. Designers add them to the system, and I approve them before they&rsquo;re published.</p>
         <div class="path"><span class="tag">Request</span><i>&rarr;</i><span class="tag">A designer adds it</span><i>&rarr;</i><span class="tag">I approve it</span><i>&rarr;</i><span class="tag">Published for everyone</span></div>
       </div>
@@ -186,7 +186,7 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">Outcome</span>
-        <h2 class="t-h2">The default way <span class="mute">to build.</span></h2>
+        <h2 class="t-h2">The default way <span class="mute">to build</span></h2>
         <p class="t-big">The system now underpins the redesigned Tu Financiera app, which launched with an NPS of +73.5 and has grown to more than 80,000 active users.</p>
       </div>
       <div class="results reveal">
@@ -215,7 +215,7 @@
     <div class="row-body">
       <div class="beat reveal">
         <span class="label">What I learned</span>
-        <h2 class="t-h2">A system is a habit, <span class="mute">not a file.</span></h2>
+        <h2 class="t-h2">A system is a habit, <span class="mute">not a file</span></h2>
       </div>
       <div class="lessons reveal">
         <p><b>Make the system the easy path.</b> Consistency only scales when using the system is easier than rebuilding by hand.</p>
@@ -232,14 +232,14 @@
   </div>
 </div>
 
-<section class="section"><div class="wrap"><div class="head-center"><span class="pill">More work</span><h2 class="t-h2 split">Also worth a <span class="mute">look.</span></h2></div><div class="cards"><a class="card reveal" href="tufinanciera.html" aria-label="Tu Financiera case study"><div class="photo"><img class="bg" src="assets/img/card-tf.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-tf"><i><b></b><b></b></i>tu financiera</span></div><span class="tag">Fintech</span></div>
+<section class="section"><div class="wrap"><div class="head-center"><span class="pill">More work</span><h2 class="t-h2 split">Also worth <span class="mute">a look</span></h2></div><div class="cards"><a class="card reveal" href="tufinanciera.html" aria-label="Tu Financiera case study"><div class="photo"><img class="bg" src="assets/img/card-tf.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-tf"><i><b></b><b></b></i>tu financiera</span></div><span class="tag">Fintech</span></div>
       <div class="card-info"><h3 class="t-title">Tu Financiera</h3><p class="t-body">Mobile banking for a Paraguayan fintech, now fully digital and used by 80,000+ people.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a><a class="card reveal" href="fitflex.html" aria-label="FitFlex case study"><div class="photo"><img class="bg" src="assets/img/card-ff.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-ff">FitFlex</span></div><span class="tag">Concept</span></div>
       <div class="card-info"><h3 class="t-title">FitFlex</h3><p class="t-body">A concept fitness app that turns solo workouts into shared ones with friends.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div></section><section class="section" id="contact">
   <div class="wrap contact">
     <div class="photo contact-card reveal">
       <img class="bg" src="assets/img/contact.webp" alt="" loading="lazy">
       <div class="over top">Product Designer at Tu Financiera</div>
-      <div class="over mid"><h2 class="t-h2">Let&rsquo;s build something worth shipping.</h2><p>Briefs, collaborations, or a quick question. I read everything and usually reply within a couple of working days.</p></div>
+      <div class="over mid"><h2 class="t-h2">Let&rsquo;s build something worth shipping</h2><p>Briefs, collaborations, or a quick question. I read everything and usually reply within a couple of working days.</p></div>
       <div class="over bottom"><div class="marquee" aria-hidden="true"><div class="marquee-track"><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span><span class="wordmark wm-a">Tu Financiera</span><span class="wordmark wm-b">Grupo Paraguay Eventos</span><span class="wordmark wm-c">Liberty University</span></div></div></div>
     </div>
     <form class="form reveal" data-mailto>

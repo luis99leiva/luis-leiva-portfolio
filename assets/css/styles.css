@@ -73,6 +73,9 @@ button, input, textarea { font: inherit; color: inherit; letter-spacing: inherit
 .t-hero   { font-family: var(--serif); font-size: 70px; line-height: 77px; letter-spacing: -0.035em; }
 .t-detail { font-family: var(--serif); font-size: 80px; line-height: 80px; letter-spacing: -0.035em; }
 .t-h2     { font-family: var(--serif); font-size: 56px; line-height: 1.1; letter-spacing: -0.03em; }
+/* titles break into even lines; .keep (set in main.js) holds the last two words together */
+.t-hero, .t-h2 { text-wrap: balance; }
+.keep { white-space: nowrap; }
 .t-quote  { font-family: var(--serif); font-size: 48px; line-height: 1.1; letter-spacing: -0.03em; }
 .t-h3     { font-family: var(--serif); font-size: 28px; line-height: 1.1; letter-spacing: -0.025em; }
 .t-lead   { font-size: 20px; line-height: 30px; letter-spacing: -0.02em; color: var(--muted); }
