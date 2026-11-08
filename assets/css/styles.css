@@ -200,45 +200,6 @@ p { text-wrap: pretty; }
 .actions { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 32px; }
 .hero .actions { justify-content: center; }
 .hero-media { position: relative; height: 429px; margin-top: 64px; border-radius: 32px; overflow: hidden; }
-/* hero bento: app shot, NPS, design system, users, location */
-.bento {
-  display: grid; gap: 16px; margin-top: 64px; text-align: left;
-  grid-template-columns: 400fr 320fr 320fr; grid-template-rows: 214px 214px;
-}
-.bento-card {
-  position: relative; overflow: hidden; border-radius: 28px;
-  -webkit-mask-image: linear-gradient(#000 0 0); mask-image: linear-gradient(#000 0 0);
-}
-.b-tag {
-  position: absolute; z-index: 3;
-  padding: 8px 14px; border-radius: 50px;
-  background: #140e0a; color: #fff;
-  font-size: 14px; line-height: 20px; font-weight: 500;
-}
-.b-app { grid-row: span 2; }
-.b-app .b-tag { top: 20px; left: 20px; }
-.b-app .phone {
-  position: absolute; z-index: 2; left: 50%; top: 40px;
-  width: 230px; transform: translateX(-50%);
-}
-.b-stat, .b-place { background: linear-gradient(160deg, #241b14, #18120d); border: 1px solid rgb(255 255 255 / .03); }
-.b-stat { display: flex; flex-direction: column; justify-content: center; padding: 24px; }
-.bento .num { font-family: var(--serif); font-size: 52px; line-height: 1; letter-spacing: -0.035em; color: var(--ink); }
-.bento-card p { margin-top: 12px; font-size: 16px; line-height: 24px; color: var(--muted); }
-.b-ds { background: #fff; }
-.b-ds img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-.b-ds .b-tag { left: 20px; bottom: 20px; }
-.bento .b-users > .over { position: absolute; left: 24px; bottom: 24px; }
-.b-users .num, .b-users p { color: #fff; }
-.b-place { display: flex; flex-direction: column; padding: 24px; }
-.b-dot { width: 14px; height: 14px; border-radius: 50%; background: #6fd08c; box-shadow: 0 0 0 5px rgb(111 208 140 / .18); margin: 4px 0 0 4px; }
-.bento-card .b-where { margin-top: auto; font-family: var(--serif); font-size: 30px; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
-.bento-card .b-role { margin-top: 24px; }
-@media (hover: hover) {
-  .b-app .phone { transition: transform .6s var(--ease); }
-  .b-app:hover .phone { transform: translateX(-50%) translateY(-8px); }
-}
-
 .dots {
   position: absolute; inset: 36px 40px; z-index: 2;
   background-image: radial-gradient(circle, rgb(255 255 255 / .96) 7px, transparent 7.6px);
@@ -731,10 +692,6 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 }
 
 @media (max-width: 809px) {
-  .bento { grid-template-columns: 1fr 1fr; grid-template-rows: 440px repeat(2, 200px); margin-top: 48px; }
-  .b-app { grid-column: 1 / -1; grid-row: auto; }
-  .bento .num { font-size: 44px; }
-  .bento-card .b-where { font-size: 26px; }
   :root { --gutter: 24px; }
   body { font-size: 15px; }
   .t-hero { font-size: 42px; line-height: 46px; }
@@ -859,8 +816,3 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .hero-media > img.bg { filter: brightness(.95) saturate(1.05); }
 .footer-flower, .page-hero .flower { filter: drop-shadow(0 30px 60px rgb(255 120 30 / .12)); }
 ::selection { background: #f3eadf; color: #140e0a; }
-
-@media (max-width: 540px) {
-  .bento { grid-template-columns: 1fr; grid-template-rows: 440px repeat(4, 190px); }
-  .b-app .phone { top: 72px; }
-}
