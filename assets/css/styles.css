@@ -209,6 +209,7 @@ p { text-wrap: pretty; }
 }
 /* hero variant: gradient + phone */
 .hero-phone { height: 600px; }
+.hero-media.hero-phone > img.bg { filter: brightness(.6) saturate(1.05); }   /* darker gradient, phone untouched */
 .hero-phone .phone {
   position: absolute; left: 50%; top: 50%; z-index: 2;
   height: 536px; width: calc(536px * 620 / 1321);
