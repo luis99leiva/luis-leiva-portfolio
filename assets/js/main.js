@@ -1,6 +1,7 @@
 // Luis Leiva · Portfolio
 (function () {
   document.documentElement.classList.remove('no-js');
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Paragraphs: a no-break space between the last two words, so no line ends up with one word alone
   var glue = function (p) {
@@ -31,7 +32,7 @@
             var s = document.createElement('span');
             s.className = 'w';
             s.textContent = part;
-            s.style.transitionDelay = (i++ * 0.06) + 's';
+            s.style.transitionDelay = (i++ * 0.04) + 's';
             frag.appendChild(s);
           });
           node.replaceChild(frag, n);
@@ -86,7 +87,7 @@
   // Stats count up from zero, keeping their prefix, suffix and separators
   var countUp = function (el) {
     var m = el.textContent.trim().match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/);
-    if (!m) return;
+    if (!m || calm) return;
     var end = parseFloat(m[2].replace(/,/g, ''));
     var decimals = (m[2].split('.')[1] || '').length;
     var commas = m[2].indexOf(',') > -1;
@@ -136,7 +137,7 @@
     if ('IntersectionObserver' in window) {
       var seen = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) { ol.classList.add('drawn'); seen.disconnect(); }
-      }, { rootMargin: '0px 0px -35% 0px' });
+      }, { rootMargin: '0px 0px -20% 0px' });
       seen.observe(ol);
     } else ol.classList.add('drawn');
   });
@@ -152,12 +153,12 @@
           io.unobserve(el);
           if (el.classList.contains('num')) { countUp(el); return; }
           if (i && el.classList.contains('reveal')) {
-            el.style.transitionDelay = (i * 0.1) + 's';
-            setTimeout(function () { el.style.transitionDelay = ''; }, i * 100 + 1200);
+            el.style.transitionDelay = Math.min(i * 0.06, 0.3) + 's';
+            setTimeout(function () { el.style.transitionDelay = ''; }, 1000);
           }
           el.classList.add('in');
         });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px 0px 0px', threshold: 0.01 });
     targets.forEach(function (el) { io.observe(el); });
   } else {
     targets.forEach(function (el) { el.classList.add('in'); });
