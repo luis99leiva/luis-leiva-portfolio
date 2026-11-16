@@ -10,7 +10,8 @@
     { n: 6, t: 'Case study shows the app', d: 'Phones on the Tu Financiera cover, and the "after" home screen next to Decision 01. The repeated screen strip under the cover is gone.' },
     { n: 7, t: 'Faster, gentler animations', d: 'Shorter reveals that start as soon as content enters the screen. With "reduce motion" turned on, nothing animates.', removed: true },
     { n: 8, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden, footer flower removed, alt text on every project image. Gray text contrast checked: 5.1 to 5.9:1, passes AA, so no change.', removed: true },
-    { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' }
+    { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' },
+    { n: 10, t: 'Page header flowers removed', d: 'The flower next to the title on Projects, About and Contact is gone; the title now has the full row.' }
   ];
   var TODO = [
     'Before screens for Decisions 02 and 03 (the scheduled transfers entry point and the failed payment options): I don\'t have those images.',

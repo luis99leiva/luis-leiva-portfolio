@@ -891,3 +891,9 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .steps-path path { transition: none; stroke-dashoffset: 0; }
   .marquee-track, .page-hero .flower { animation: none; }
 }
+
+/* test-1: no flower in the page headers, so the text takes the full row */
+.page-hero-grid { grid-template-columns: 1fr; }
+.page-hero-grid { text-align: center; }
+.page-hero .t-hero, .page-hero .t-lead { margin-left: auto; margin-right: auto; }
+.page-hero-grid .actions { justify-content: center; }
