@@ -859,13 +859,13 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .feature-cs:focus-visible .fc-screens { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* case study cover with the screens inside it */
-.cover-app { height: 800px; justify-content: flex-start; }
-.cover-app::before { background: linear-gradient(180deg, rgb(20 12 4 / .5), rgb(20 12 4 / .12) 55%, rgb(20 12 4 / .3)); }
-.cover-app .title { padding: 40px 70px 0; }
-.cover-screens { position: absolute; left: 0; right: 0; bottom: -70px; z-index: 2; display: flex; align-items: flex-end; justify-content: center; gap: 20px; padding: 0 40px; }
-.cover-screens .phone { width: 172px; padding: 6px; border-radius: 34px; }
-.cover-screens .phone img { border-radius: 28px; }
-.cover-screens .phone:nth-child(2), .cover-screens .phone:nth-child(4) { margin-bottom: 40px; }
+.cover-app { height: 470px; justify-content: flex-start; }
+.cover-app .title { padding: 24px 70px 0; }
+/* the screens sit under the cover and rise into its bottom edge */
+.cover-screens { position: relative; z-index: 3; display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-top: -110px; padding: 0 40px; pointer-events: none; }
+.cover-screens .phone { width: 150px; padding: 5px; border-radius: 30px; }
+.cover-screens .phone img { border-radius: 25px; }
+.cover-screens .phone:nth-child(2), .cover-screens .phone:nth-child(4) { margin-bottom: 32px; }
 
 /* decisions: a screen, or a before / after flow */
 .decision.has-shot { display: grid; grid-template-columns: minmax(0, 1fr) 190px; column-gap: 40px; }
@@ -906,11 +906,12 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .fc-stats { grid-template-columns: 1fr; }
   .fc-stats > div { min-height: 0; }
   .feature-cs { margin-bottom: 24px; }
-  .cover-app { height: 640px; }
-  .cover-app .title { padding: 20px 24px 0; }
-  .cover-screens { gap: 12px; padding: 0 16px; bottom: -40px; }
-  .cover-screens .phone { width: 128px; padding: 5px; border-radius: 26px; }
-  .cover-screens .phone img { border-radius: 21px; }
+  .cover-app { height: 420px; }
+  .cover-app .title { padding: 16px 24px 0; }
+  .cover-screens { gap: 10px; padding: 0 12px; margin-top: -70px; }
+  .cover-screens .phone { width: 104px; padding: 4px; border-radius: 22px; }
+  .cover-screens .phone img { border-radius: 18px; }
+  .cover-screens .phone:nth-child(2), .cover-screens .phone:nth-child(4) { margin-bottom: 22px; }
   .cover-screens .phone:nth-child(n+4) { display: none; }
   .decision.has-shot { grid-template-columns: 1fr; }
   .decision.has-shot .decision-shot { grid-column: 1; grid-row: auto; order: 9; width: 170px; margin: 24px auto 0; }
