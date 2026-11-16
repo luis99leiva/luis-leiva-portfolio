@@ -11,7 +11,7 @@
     { n: 7, t: 'Key decisions have visuals', d: 'Decision 01 shows the home that shipped. Decisions 02 and 03 get a before and after flow built from your own text.' },
     { n: 8, t: 'Flowers removed', d: 'Gone from the top of Projects, About and Contact (titles now centered) and from every footer.' },
     { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' },
-    { n: 10, t: 'Faster, gentler animations', d: 'Content appears as soon as it enters the screen, in about half the time. With "reduce motion" on, nothing animates.', removed: true },
+    { n: 10, t: 'Same motion as the live site', d: 'Every reveal, headline blur, count-up, step line and hover zoom uses the live site timing, and the new hero phones rise in one after another.', removed: true },
     { n: 11, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden. Every project image has alt text. Gray text contrast measured at 5.1 to 5.9:1, which passes AA, so it stays.', removed: true }
   ];
   var TODO = [
