@@ -291,11 +291,12 @@
     toc.className = 'toc';
     toc.setAttribute('aria-label', 'Case study sections');
     var tocList = document.createElement('ol');
-    var tocLinks = [];
+    var tocLinks = [], tocNames = [];
     chapters.forEach(function (ch, i) {
       var lab = ch.querySelector('.row-label'), num = lab && lab.querySelector('b');
       var name = lab ? lab.textContent.replace(num ? num.textContent : '', '').trim() : 'Section ' + (i + 1);
       if (!ch.id) ch.id = 'section-' + (i + 1);
+      tocNames.push((num ? num.textContent + ' \u00b7 ' : '') + name);
       var li = document.createElement('li'), link = document.createElement('a'), text = document.createElement('span');
       link.href = '#' + ch.id;
       text.textContent = name;
@@ -303,18 +304,38 @@
       link.appendChild(document.createElement('i'));
       link.addEventListener('click', function (ev) {
         ev.preventDefault();
+        tocClose();
         window.scrollTo({ top: ch.getBoundingClientRect().top + window.scrollY + 40, behavior: 'smooth' });
         if (history.replaceState) history.replaceState(null, '', '#' + ch.id);
       });
       li.appendChild(link); tocList.appendChild(li); tocLinks.push(link);
     });
+    // phones and tablets: a pill at the top names the current chapter and opens the list on tap
+    var tocBtn = document.createElement('button');
+    tocBtn.type = 'button';
+    tocBtn.className = 'toc-toggle';
+    tocBtn.setAttribute('aria-expanded', 'false');
+    tocBtn.setAttribute('aria-label', 'Case study sections');
+    var tocNow = document.createElement('span');
+    tocBtn.appendChild(tocNow);
+    tocBtn.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    var tocClose = function () { toc.classList.remove('open'); tocBtn.setAttribute('aria-expanded', 'false'); };
+    tocBtn.addEventListener('click', function () {
+      tocBtn.setAttribute('aria-expanded', String(toc.classList.toggle('open')));
+    });
+    document.addEventListener('click', function (ev) { if (!toc.contains(ev.target)) tocClose(); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') tocClose(); });
+    toc.appendChild(tocBtn);
     toc.appendChild(tocList);
     document.body.appendChild(toc);
     var tocUpdate = function () {
       var mark = window.innerHeight * 0.45, cur = -1;
       chapters.forEach(function (ch, i) { if (ch.getBoundingClientRect().top <= mark) cur = i; });
       var last = chapters[chapters.length - 1].getBoundingClientRect();
-      toc.classList.toggle('show', cur > -1 && last.bottom > window.innerHeight * 0.3);
+      var shown = cur > -1 && last.bottom > window.innerHeight * 0.3;
+      toc.classList.toggle('show', shown);
+      if (!shown) tocClose();
+      if (cur > -1) tocNow.textContent = tocNames[cur];
       tocLinks.forEach(function (l, i) {
         l.classList.toggle('on', i === cur);
         if (i === cur) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
