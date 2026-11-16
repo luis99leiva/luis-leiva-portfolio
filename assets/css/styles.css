@@ -980,3 +980,17 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .tab-media .phone { width: 148px; }
   .tab-copy { padding: 0 4px 4px; }
 }
+
+/* ================= test-2: case study section list (right edge) ================= */
+.toc { position: fixed; right: 14px; top: 50%; z-index: 40; transform: translateY(-50%); opacity: 0; visibility: hidden; transition: opacity .4s var(--ease-soft), visibility .4s; }
+.toc.show { opacity: 1; visibility: visible; }
+.toc ol { list-style: none; margin: 0; padding: 10px 12px; display: grid; gap: 2px; border-radius: 16px; border: 1px solid transparent; transition: background-color .3s var(--ease-soft), border-color .3s var(--ease-soft), box-shadow .3s var(--ease-soft); }
+.toc a { display: flex; align-items: center; justify-content: flex-end; gap: 12px; height: 26px; color: var(--muted); font-size: 14px; line-height: 1; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+.toc a span { max-width: 0; overflow: hidden; opacity: 0; transition: max-width .4s var(--ease), opacity .25s var(--ease-soft); }
+.toc a i { flex: none; width: 14px; height: 2px; border-radius: 2px; background: rgb(243 234 223 / .26); transition: width .35s var(--ease), background-color .3s var(--ease-soft); }
+.toc a.on { color: var(--ink); }
+.toc a.on i { width: 26px; background: var(--ink); }
+.toc:hover ol, .toc:focus-within ol, .toc.open ol { background: var(--band); border-color: rgb(255 255 255 / .06); box-shadow: 0 20px 50px rgb(0 0 0 / .45); }
+.toc:hover a span, .toc:focus-within a span, .toc.open a span { max-width: 200px; opacity: 1; }
+@media (hover: hover) { .toc a:hover { color: var(--ink); } .toc a:hover i { background: var(--ink); } }
+@media (max-width: 1180px) { .toc { display: none; } }
