@@ -31,9 +31,10 @@
 <main id="main">
 <section>
   <div class="wrap">
-    <div class="photo cs-cover reveal"><img class="bg" src="assets/img/cover-tf.webp" alt="" fetchpriority="high">
+    <div class="photo cs-cover cover-app reveal" data-change="6"><img class="bg" src="assets/img/cover-tf.webp" alt="" fetchpriority="high">
       <div class="over bar"><a class="back-pill" href="projects.html">Back</a><a class="next-dot" href="design-system.html" aria-label="Next project: Design System"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       <div class="over title"><p class="cs-kicker">Case study &middot; 01 &middot; Fintech mobile app</p><h1 class="t-detail split">Tu Financiera</h1><p class="t-lead">Led the redesign of a fintech app serving 80,000+ active users (25,000 before launch).</p></div>
+      <div class="cover-screens"><div class="phone"><img src="assets/img/tf-screen-login.webp" alt="Sign-in"></div><div class="phone"><img src="assets/img/tf-screen-request.png" alt="Loan request intro"></div><div class="phone"><img src="assets/img/tf-screen-home.webp" alt="Home with quick actions"></div><div class="phone"><img src="assets/img/tf-screen-loan.webp" alt="Loan detail with installments"></div><div class="phone"><img src="assets/img/tf-screen-store.webp" alt="App Store listing"></div></div>
     </div>
   </div>
 </section>
@@ -68,9 +69,6 @@
       <a class="jump" href="#experience">See the full experience, step by step: chapter 05 &darr;</a>
     </div>
   </div>
-</div>
-<div class="wrap" style="margin-top:56px">
-  <div class="photo screens reveal"><img class="bg" src="assets/img/cover-tf.webp" alt="" loading="lazy"><div class="over"><div class="phone"><img src="assets/img/tf-screen-login.webp" alt="Sign-in" loading="lazy"></div><div class="phone"><img src="assets/img/tf-screen-verify.webp" alt="Document legibility check" loading="lazy"></div><div class="phone"><img src="assets/img/tf-screen-home.webp" alt="Home with quick actions" loading="lazy"></div><div class="phone"><img src="assets/img/tf-screen-loan.webp" alt="Loan detail with installments" loading="lazy"></div><div class="phone"><img src="assets/img/tf-screen-store.webp" alt="App Store listing" loading="lazy"></div></div></div>
 </div>
 
 <!-- 01 · Context -->
@@ -192,7 +190,8 @@
         <p class="t-big">Across the redesign and the work after launch, the same tension kept coming up: stakeholders wanted visibility for everything, and I pushed for what users needed in that moment. These are the decisions where that choice mattered most.</p>
       </div>
       <div class="decisions">
-        <div class="decision reveal">
+        <div class="decision has-shot reveal" data-change="7">
+          <figure class="decision-shot"><div class="phone"><img src="assets/img/tf-screen-home.webp" alt="The focused home: three quick actions, one loan prompt and the star products" loading="lazy"></div><figcaption>The focused home that shipped</figcaption></figure>
           <span class="label">Decision 01 &middot; Home</span>
           <p class="t-title">A focused home, not a catalog</p>
           <p class="t-body">Stakeholders wanted every product on the home screen so each one would get exposure. Our users are mostly older adults, and every extra option on the first screen makes the app harder and slower to use.</p>
@@ -204,12 +203,14 @@
           <p class="t-title">Scheduling doesn&rsquo;t belong in the middle of a transfer</p>
           <p class="t-body">72% of scheduled transfers were never executed. The entry point lived inside the transfer screen, and the manager wanted to keep it there because it&rsquo;s the most visited screen in the app. The interviews showed two problems: customers thought scheduling was a mandatory step of the transfer, and most didn&rsquo;t understand the feature at all. One staff member didn&rsquo;t know it existed until a customer mentioned it.</p>
           <p class="t-body">Explaining it inside the transfer would slow down people who just want to send money fast. 9 of 10 customers asked for visible access to their scheduled transfers, so I moved &ldquo;Tus agendamientos&rdquo; (your scheduled transfers) to the savings account view, where customers already check their money. The amount is the main data point (10 of 10 asked for it), with a heads-up before the debit.</p>
+          <div class="ba" data-change="7"><div class="ba-row before"><span class="ba-tag">Before</span><div class="ba-steps"><span class="ba-step">Transfer screen</span><i aria-hidden="true">&rarr;</i><span class="ba-step">Scheduling sits inside the transfer</span><i aria-hidden="true">&rarr;</i><span class="ba-step bad">72% never executed</span></div></div><div class="ba-row after"><span class="ba-tag">After</span><div class="ba-steps"><span class="ba-step">Savings account</span><i aria-hidden="true">&rarr;</i><span class="ba-step">&ldquo;Tus agendamientos&rdquo; next to the balance</span><i aria-hidden="true">&rarr;</i><span class="ba-step good">Warned before the debit</span></div></div></div>
           <p class="trade"><b>Trade-off:</b> we gave up the most visited entry point in the app, so fewer people find the feature by accident. In exchange, customers see their scheduled transfers right next to their balance and get warned before the debit.</p>
         </div>
         <div class="decision reveal">
           <span class="label">Decision 03 &middot; Failed payments</span>
           <p class="t-title">Don&rsquo;t cancel on the first missed payment</p>
           <p class="t-body">71% of failed scheduled transfers failed because of insufficient balance, and the original feature simply cancelled them. Cancelling can&rsquo;t be the first option. Now, when a debit can&rsquo;t go through, the customer chooses: transfer now, add it to next month, or skip this month.</p>
+          <div class="ba" data-change="7"><div class="ba-row before"><span class="ba-tag">Before</span><div class="ba-steps"><span class="ba-step">Debit fails, no balance</span><i aria-hidden="true">&rarr;</i><span class="ba-step bad">Schedule cancelled</span></div></div><div class="ba-row after"><span class="ba-tag">After</span><div class="ba-steps"><span class="ba-step">Debit fails, no balance</span><i aria-hidden="true">&rarr;</i><span class="ba-step">Customer chooses</span><i aria-hidden="true">&rarr;</i><span class="ba-opts"><span class="ba-step good">Transfer now</span><span class="ba-step good">Add to next month</span><span class="ba-step good">Skip this month</span></span></div></div></div>
           <p class="trade"><b>Trade-off:</b> three options instead of one makes the moment less simple. We accepted that because one month without balance should not erase a schedule the customer set up on purpose.</p>
         </div>
       </div>
@@ -312,8 +313,8 @@
   </div>
 </div>
 
-<section class="section"><div class="wrap"><div class="head-center"><span class="pill">More work</span><h2 class="t-h2 split">Also worth <span class="mute">a look</span></h2></div><div class="cards"><a class="card reveal" href="design-system.html" aria-label="Design System case study"><div class="photo"><img class="bg" src="assets/img/card-ds.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-ds"><svg viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="2" y="2" width="11" height="11" rx="3" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="2" width="11" height="11" rx="5.5" stroke="currentColor" stroke-width="2.4"/><rect x="2" y="17" width="11" height="11" rx="5.5" stroke="currentColor" stroke-width="2.4"/><rect x="17" y="17" width="11" height="11" rx="3" stroke="currentColor" stroke-width="2.4"/></svg>Design System</span></div><span class="tag">Design system</span></div>
-      <div class="card-info"><h3 class="t-title">Design System</h3><p class="t-body">The first design system for Tu Financiera, adopted by design and development.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a><a class="card reveal" href="fitflex.html" aria-label="FitFlex case study"><div class="photo"><img class="bg" src="assets/img/card-ff.webp" alt="" loading="lazy"><div class="logo"><span class="lg lg-ff">FitFlex</span></div><span class="tag">Concept</span></div>
+<section class="section"><div class="wrap"><div class="head-center"><span class="pill">More work</span><h2 class="t-h2 split">Also worth <span class="mute">a look</span></h2></div><div class="cards"><a class="card reveal" href="design-system.html" aria-label="Design System case study"><div class="photo shots shots-ds" data-change="2"><img class="bg" src="assets/img/card-ds.webp" alt="" loading="lazy"><img class="panel panel-1" src="assets/img/ds-variables.webp" alt="Design system variables: semantic color tokens for text, inputs and states" loading="lazy"><img class="panel panel-2" src="assets/img/ds-styles.webp" alt="Design system text styles: displays and headings" loading="lazy"><span class="tag">Design system</span></div>
+      <div class="card-info"><h3 class="t-title">Design System</h3><p class="t-body">The first design system for Tu Financiera, adopted by design and development.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a><a class="card reveal" href="fitflex.html" aria-label="FitFlex case study"><div class="photo shots" data-change="2"><img class="bg" src="assets/img/card-ff.webp" alt="" loading="lazy"><div class="phone"><img src="assets/img/ff-screen-workout.webp" alt="FitFlex workout favorites" loading="lazy"></div><div class="phone"><img src="assets/img/ff-screen-home.webp" alt="FitFlex home with activity stats and friends" loading="lazy"></div><div class="phone"><img src="assets/img/ff-screen-nutrition.webp" alt="FitFlex nutrition screen" loading="lazy"></div><span class="tag">Concept</span></div>
       <div class="card-info"><h3 class="t-title">FitFlex</h3><p class="t-body">A concept fitness app that turns solo workouts into shared ones with friends.</p><span class="card-arrow"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></a></div></div></section><section class="section" id="contact">
   <div class="wrap contact">
     <div class="photo contact-card reveal">
@@ -325,7 +326,7 @@
     <form class="form reveal" data-mailto>
       <input class="input" name="name" type="text" placeholder="Name*" autocomplete="name" required aria-label="Name">
       <input class="input" name="email" type="email" placeholder="Email*" autocomplete="email" required aria-label="Email">
-      <fieldset class="fieldset"><legend>What can I help you with?</legend><div class="chips"><label class="chip"><input type="radio" name="topic" value="Mobile app design" checked><span>Mobile app design</span></label><label class="chip"><input type="radio" name="topic" value="Website design"><span>Website design</span></label><label class="chip"><input type="radio" name="topic" value="SaaS product design"><span>SaaS product design</span></label><label class="chip"><input type="radio" name="topic" value="Design systems"><span>Design systems</span></label><label class="chip"><input type="radio" name="topic" value="UX audit"><span>UX audit</span></label><label class="chip"><input type="radio" name="topic" value="Something else"><span>Something else</span></label></div></fieldset>
+      <fieldset class="fieldset" data-change="9"><legend>What can I help you with?</legend><div class="chips"><label class="chip"><input type="radio" name="topic" value="Mobile app design" checked><span>Mobile app design</span></label><label class="chip"><input type="radio" name="topic" value="Design systems"><span>Design systems</span></label><label class="chip"><input type="radio" name="topic" value="UX audit"><span>UX audit</span></label><label class="chip"><input type="radio" name="topic" value="Something else"><span>Something else</span></label></div></fieldset>
       <textarea class="textarea" name="message" placeholder="Tell me about your project..." required aria-label="Message"></textarea>
       <button class="submit" type="submit">Send message <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <p class="form-note">Opens your email app with the message ready to send, or write to <a href="mailto:luis99leiva@gmail.com">luis99leiva@gmail.com</a></p>
@@ -351,5 +352,6 @@
   </div>
 </footer>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/changes.js"></script>
 </body>
 </html>
