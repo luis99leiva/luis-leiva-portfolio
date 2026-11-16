@@ -859,10 +859,10 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .feature-cs:focus-visible .fc-screens { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* case study cover with the screens inside it */
-.cover-app { height: auto; justify-content: flex-start; padding-bottom: 214px; }
+.cover-app { height: auto; justify-content: flex-start; padding-bottom: 56px; }
 .cover-app .title { padding: 24px 70px 0; }
-/* the screens sit under the cover and rise into its bottom edge */
-.cover-screens { position: relative; z-index: 3; display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-top: -110px; padding: 0 40px; pointer-events: none; }
+/* the screens sit fully under the cover */
+.cover-screens { position: relative; z-index: 3; display: flex; align-items: flex-end; justify-content: center; gap: 18px; margin-top: 40px; padding: 0 40px; pointer-events: none; }
 .cover-screens .phone { width: 150px; padding: 5px; border-radius: 30px; }
 .cover-screens .phone img { border-radius: 25px; }
 .cover-screens .phone:nth-child(2), .cover-screens .phone:nth-child(4) { margin-bottom: 32px; }
@@ -906,9 +906,9 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .fc-stats { grid-template-columns: 1fr; }
   .fc-stats > div { min-height: 0; }
   .feature-cs { margin-bottom: 24px; }
-  .cover-app { height: auto; padding-bottom: 168px; }
+  .cover-app { height: auto; padding-bottom: 32px; }
   .cover-app .title { padding: 16px 24px 0; }
-  .cover-screens { gap: 10px; padding: 0 12px; margin-top: -70px; }
+  .cover-screens { gap: 10px; padding: 0 12px; margin-top: 24px; }
   .cover-screens .phone { width: 104px; padding: 4px; border-radius: 22px; }
   .cover-screens .phone img { border-radius: 18px; }
   .cover-screens .phone:nth-child(2), .cover-screens .phone:nth-child(4) { margin-bottom: 22px; }
