@@ -12,7 +12,8 @@
     { n: 8, t: 'Flowers removed', d: 'Gone from the top of Projects, About and Contact (titles now centered) and from every footer.' },
     { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' },
     { n: 10, t: 'Same motion as the live site', d: 'Every reveal, headline blur, count-up, step line and hover zoom uses the live site timing, and the new hero phones rise in one after another.', removed: true },
-    { n: 11, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden. Every project image has alt text. Gray text contrast measured at 5.1 to 5.9:1, which passes AA, so it stays.', removed: true }
+    { n: 11, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden. Every project image has alt text. Gray text contrast measured at 5.1 to 5.9:1, which passes AA, so it stays.', removed: true },
+    { n: 12, t: 'Shorter Tu Financiera case study', d: 'Nine chapters became six, with about a fifth less scrolling. Results appear once, context and problem are merged, and the final experience is four steps side by side. Dashed boxes mark where your own images go.' }
   ];
   var TODO = [
     'Real before screenshots for Decisions 02 and 03 would beat my diagrams. Send them and I will swap them in.',
