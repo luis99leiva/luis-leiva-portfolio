@@ -958,3 +958,25 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .decision.has-slots .decision-slots { margin-left: auto; margin-right: auto; }
   .slot.wide .slot-box { aspect-ratio: 4 / 3; }
 }
+
+/* ================= test-2: strategy tabs ================= */
+.tab-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tab { height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid rgb(255 255 255 / .05); background: var(--chip); color: var(--ink); font: 500 14px/1 var(--sans); letter-spacing: -0.01em; cursor: pointer; transition: background-color .3s var(--ease-soft), color .3s var(--ease-soft); }
+.tab[aria-selected="true"] { background: var(--ink); color: var(--soft); }
+@media (hover: hover) { .tab[aria-selected="false"]:hover { background: var(--chip-hover); } }
+.tab-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 16px; padding: 28px; border-radius: 28px; background: var(--band); border: 1px solid rgb(255 255 255 / .03); animation: tab-in .5s var(--ease); }
+.tab-panel[hidden] { display: none; }
+@keyframes tab-in { from { opacity: 0; transform: translateY(10px); } }
+.tab-media { display: grid; place-items: center; height: 420px; border-radius: 20px; background: #0b0806; overflow: hidden; }
+.tab-media .phone { width: 172px; padding: 5px; border-radius: 28px; }
+.tab-media .phone img { border-radius: 23px; }
+.tab-media img.wide { width: 88%; border-radius: 12px; }
+.tab-copy { padding-right: 12px; }
+.tab-copy .t-h3 { margin-top: 12px; }
+.tab-copy .t-body { margin-top: 12px; }
+@media (max-width: 760px) {
+  .tab-panel { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
+  .tab-media { height: 360px; }
+  .tab-media .phone { width: 148px; }
+  .tab-copy { padding: 0 4px 4px; }
+}
