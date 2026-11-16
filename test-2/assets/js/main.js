@@ -283,6 +283,48 @@
     });
   });
 
+  // Case studies: section list on the right edge. Dashes mark the chapters, the current one
+  // is longer and brighter, and hovering (or tabbing in) opens the names.
+  var chapters = document.querySelectorAll('.row.chapter');
+  if (chapters.length > 2) {
+    var toc = document.createElement('nav');
+    toc.className = 'toc';
+    toc.setAttribute('aria-label', 'Case study sections');
+    var tocList = document.createElement('ol');
+    var tocLinks = [];
+    chapters.forEach(function (ch, i) {
+      var lab = ch.querySelector('.row-label'), num = lab && lab.querySelector('b');
+      var name = lab ? lab.textContent.replace(num ? num.textContent : '', '').trim() : 'Section ' + (i + 1);
+      if (!ch.id) ch.id = 'section-' + (i + 1);
+      var li = document.createElement('li'), link = document.createElement('a'), text = document.createElement('span');
+      link.href = '#' + ch.id;
+      text.textContent = name;
+      link.appendChild(text);
+      link.appendChild(document.createElement('i'));
+      link.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        window.scrollTo({ top: ch.getBoundingClientRect().top + window.scrollY + 40, behavior: 'smooth' });
+        if (history.replaceState) history.replaceState(null, '', '#' + ch.id);
+      });
+      li.appendChild(link); tocList.appendChild(li); tocLinks.push(link);
+    });
+    toc.appendChild(tocList);
+    document.body.appendChild(toc);
+    var tocUpdate = function () {
+      var mark = window.innerHeight * 0.45, cur = -1;
+      chapters.forEach(function (ch, i) { if (ch.getBoundingClientRect().top <= mark) cur = i; });
+      var last = chapters[chapters.length - 1].getBoundingClientRect();
+      toc.classList.toggle('show', cur > -1 && last.bottom > window.innerHeight * 0.3);
+      tocLinks.forEach(function (l, i) {
+        l.classList.toggle('on', i === cur);
+        if (i === cur) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', tocUpdate, { passive: true });
+    window.addEventListener('resize', tocUpdate);
+    tocUpdate();
+  }
+
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 })();
