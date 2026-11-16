@@ -442,7 +442,6 @@ a.card:focus-visible .photo { outline: 2px solid var(--ink); outline-offset: 3px
 .socials a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--soft); transition: transform .3s var(--ease); }
 @media (hover: hover) { .socials a:hover { transform: translateY(-2px); } }
 .socials svg { width: 15px; height: 15px; }
-.footer-flower { width: 323px; margin: 72px auto 0; }
 .footer-cols { display: grid; grid-template-columns: repeat(3, auto); justify-content: space-between; max-width: 680px; margin: 64px auto 0; text-align: left; }
 .footer-cols h4 { font-size: 16px; line-height: 24px; font-weight: 500; }
 .footer-cols ul { margin-top: 16px; display: grid; gap: 16px; }
@@ -744,7 +743,6 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
   .form { padding: 24px; }
 
   .footer { margin-top: 112px; padding-top: 64px; }
-  .footer-flower { width: 240px; margin-top: 48px; }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 32px; max-width: none; }
   .footer-bottom { flex-direction: column; text-align: left; }
 
@@ -810,5 +808,4 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 .photo > img.bg { filter: brightness(.9) saturate(1.05); }
 a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: brightness(.9) saturate(1.05) blur(10px); }
 .hero-media > img.bg { filter: brightness(.95) saturate(1.05); }
-.footer-flower { filter: drop-shadow(0 30px 60px rgb(255 120 30 / .12)); }
 ::selection { background: #f3eadf; color: #140e0a; }
