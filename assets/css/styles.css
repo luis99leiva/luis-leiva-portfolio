@@ -917,3 +917,44 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .ba-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
+
+/* ================= test-2: shorter Tu Financiera case study ================= */
+.users { display: grid; gap: 12px; }
+
+/* image boxes waiting for the author's own screens */
+.slot { margin: 0; }
+.slot-box {
+  aspect-ratio: 393 / 852; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 16px; text-align: center; border-radius: 24px;
+  border: 1.5px dashed rgb(243 234 223 / .28); background: rgb(243 234 223 / .035); color: var(--muted);
+}
+.slot-box svg { width: 28px; height: 28px; margin-bottom: 4px; color: rgb(243 234 223 / .5); }
+.slot-box b { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--ink); }
+.slot-box span { font-size: 12.5px; line-height: 17px; }
+.slot figcaption { margin-top: 12px; font-size: 13px; line-height: 18px; color: var(--muted); text-align: center; }
+.slot.wide { margin-top: 16px !important; }
+.slot.wide .slot-box { aspect-ratio: 16 / 7; border-radius: 28px; }
+
+.decision.has-slots { display: grid; grid-template-columns: minmax(0, 1fr) 316px; column-gap: 40px; }
+.decision.has-slots.one { grid-template-columns: minmax(0, 1fr) 190px; }
+.decision.has-slots > * { grid-column: 1; }
+.decision.has-slots .decision-slots { grid-column: 2; grid-row: 1 / span 6; align-self: start; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.decision.has-slots.one .decision-slots { grid-template-columns: 1fr; }
+
+/* final experience: four steps side by side instead of four tall cards */
+.journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding: 28px; border-radius: 28px; background: var(--band); border: 1px solid rgb(255 255 255 / .03); }
+.step-card .phone { width: 100%; padding: 5px; border-radius: 26px; margin-bottom: 20px; }
+.step-card .phone img { border-radius: 21px; }
+.step-card .t-title { margin-top: 8px; font-size: 16px; line-height: 22px; }
+.step-card .t-body { margin-top: 6px; font-size: 14px; line-height: 21px; }
+
+@media (max-width: 1100px) {
+  .decision.has-slots, .decision.has-slots.one { grid-template-columns: 1fr; }
+  .decision.has-slots .decision-slots { grid-column: 1; grid-row: auto; order: 9; margin-top: 24px; max-width: 340px; }
+  .decision.has-slots.one .decision-slots { max-width: 170px; }
+}
+@media (max-width: 760px) {
+  .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 20px; gap: 24px 14px; }
+  .decision.has-slots .decision-slots { margin-left: auto; margin-right: auto; }
+  .slot.wide .slot-box { aspect-ratio: 4 / 3; }
+}
