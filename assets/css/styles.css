@@ -835,7 +835,6 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 @media (hover: hover) {
   a.card:hover .shots .phone { transform: translateY(-8px); }
   a.card:hover .shots-ds .panel { transform: translateY(-6px); }
-  a.card:hover .shots > img.bg { filter: brightness(.9) saturate(1.05); transform: scale(1.06); }
 }
 
 /* featured case study */
@@ -854,6 +853,7 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 @media (hover: hover) {
   .feature-cs:hover .fc-screens .phone { transform: translateY(-10px); }
   .feature-cs:hover .card-arrow svg { transform: rotate(-45deg); }
+  .feature-cs:hover .fc-screens > img.bg { transform: scale(1.06); filter: brightness(.9) saturate(1.05) blur(6px); }
 }
 .feature-cs:focus-visible { outline: none; }
 .feature-cs:focus-visible .fc-screens { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -917,17 +917,3 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .ba-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
-/* quicker reveals, and none at all for reduced motion */
-.reveal { transform: translateY(24px); transition: opacity .6s var(--ease), transform .7s var(--ease); }
-.split .w { filter: blur(6px); transition: opacity .5s var(--ease), filter .5s var(--ease), transform .5s var(--ease); }
-.steps.reveal .step, .reveal .numbered li { transition: opacity .55s var(--ease), transform .55s var(--ease); }
-.steps.reveal .step:nth-child(3) { transition-delay: .35s; }
-.steps.reveal .step:nth-child(4) { transition-delay: .7s; }
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .split .w, .steps.reveal .step, .reveal .numbered li, .chars .c, .hero-app > .phone,
-  .reveal:not(.in) .photo > img.bg, .photo.reveal:not(.in) > img.bg {
-    opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important;
-  }
-  .steps-path path { transition: none; stroke-dashoffset: 0; }
-  .marquee-track { animation: none; }
-}
