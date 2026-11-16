@@ -15,7 +15,7 @@
     { n: 11, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden. Every project image has alt text. Gray text contrast measured at 5.1 to 5.9:1, which passes AA, so it stays.', removed: true },
     { n: 12, t: 'Shorter Tu Financiera case study', d: 'Nine chapters became six. Results appear once, and context and problem are merged. Dashed boxes mark where your own images go.' },
     { n: 13, t: 'Strategy tabs from your Framer case study', d: 'The five pillars are tabs again, with your own titles, text and screens. Scheduled transfers moved to its own \'After launch\' chapter, so the main story is about the whole app.' },
-    { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On all three case studies, on screens wider than a tablet.', removed: true }
+    { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true }
   ];
   var TODO = [
     'Real before screenshots for Decisions 02 and 03 would beat my diagrams. Send them and I will swap them in.',
