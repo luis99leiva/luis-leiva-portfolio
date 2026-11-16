@@ -261,6 +261,28 @@
     });
   });
 
+  // Case study tabs: one panel at a time, arrow keys move between tabs
+  document.querySelectorAll('[data-tabs]').forEach(function (box) {
+    var tabs = box.querySelectorAll('[role="tab"]');
+    var pick = function (t) {
+      tabs.forEach(function (o) {
+        var on = o === t;
+        o.setAttribute('aria-selected', String(on)); o.tabIndex = on ? 0 : -1;
+        document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+      });
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(t); });
+      t.addEventListener('keydown', function (ev) {
+        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        ev.preventDefault();
+        var n = tabs[(i + d + tabs.length) % tabs.length];
+        n.focus(); pick(n);
+      });
+    });
+  });
+
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 })();
