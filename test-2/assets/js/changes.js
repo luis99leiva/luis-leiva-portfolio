@@ -14,11 +14,14 @@
     { n: 11, t: 'Smaller fixes', d: 'Banca Empresa "coming soon" card hidden. Every project image has alt text. Gray text contrast measured at 5.1 to 5.9:1, which passes AA, so it stays.', removed: true },
     { n: 12, t: 'Shorter Tu Financiera case study', d: 'Nine chapters became six. Results appear once, and context and problem are merged. Dashed boxes mark where your own images go.' },
     { n: 13, t: 'Strategy tabs from your Framer case study', d: 'The five pillars are tabs again, with your own titles, text and screens. Scheduled transfers moved to its own \'After launch\' chapter, so the main story is about the whole app.' },
-    { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true }
+    { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true },
+    { n: 15, t: 'Copy from your Tu Financiera notes', d: 'New header and role (Lead Product Designer), shorter problem, the three decisions in one structure (tension or signal, what I did, trade-off), four product outcomes with one attribution line, what you delivered, and the new What\'s next. Project card copy updated on Home and Projects.' }
   ];
   var TODO = [
     'Real before screenshots for Decisions 02 and 03 would beat my diagrams. Send them and I will swap them in.',
-    'Confirm what the 97% satisfaction measured, and the case study dates.',
+    'Status for Decisions 02 and 03: shipped, in development or proposed? They show no status until you tell me.',
+    'How you got buy-in for Decision 01: I used your Hick\'s Law point. Add how you presented it (side by side, support data...) if you want more.',
+    'Timeline start: I used Oct 2024 from the old page. And keep "first customer interviews" only if that is accurate.',
     'Contact form vs. a plain email and LinkedIn link: your call.'
   ];
 
