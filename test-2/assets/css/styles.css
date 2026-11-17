@@ -27,7 +27,7 @@
   --serif: "Halant", Georgia, serif;
   --sans: "Geist", -apple-system, "Segoe UI", system-ui, sans-serif;
 
-  --wrap: 1152px;
+  --wrap: 1072px;
   --nav-wrap: 1200px;
   --gutter: 24px;
 
@@ -995,7 +995,7 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .toc:hover a span, .toc:focus-within a span, .toc.open a span { max-width: 200px; opacity: 1; }
 @media (hover: hover) { .toc a:hover { color: var(--ink); } .toc a:hover i { background: var(--ink); } }
 .toc-toggle { display: none; }
-@media (max-width: 1319px) {
+@media (max-width: 1180px) {
   .toc { right: auto; left: 50%; top: 12px; transform: translateX(-50%); }
   .toc-toggle {
     display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px 0 16px; border-radius: 999px;
