@@ -7,7 +7,7 @@
     { n: 3, t: 'Headline in your own words', d: '"Making finance feel simple" echoes your About title. The line under it is your original sentence, with your role added.' },
     { n: 4, t: 'Tu Financiera told once', d: 'One featured case study opens the projects: five screens, your original description and three results. The "Who I am" block, its stats band, the "Want the full story?" strip and the second teaser lower down are gone, so the work comes right after the hero.' },
     { n: 5, t: 'Filler sections cut', d: 'Services and the Don Norman quote are removed from the home page.', removed: true },
-    { n: 6, t: 'Case study covers show the app', d: 'On Tu Financiera and FitFlex a compact cover holds the title, and the screens sit right underneath it, so the product is visible right away.' },
+    { n: 6, t: 'FitFlex cover shows the app', d: 'On FitFlex a compact cover holds the title, and the screens sit right underneath it. Tu Financiera keeps its original cover.' },
     { n: 7, t: 'Key decisions have visuals', d: 'Decision 01 shows the home that shipped. Decisions 02 and 03 get a before and after flow built from your own text.' },
     { n: 8, t: 'Flowers removed', d: 'Gone from the top of Projects, About and Contact (titles now centered) and from every footer.' },
     { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' },
