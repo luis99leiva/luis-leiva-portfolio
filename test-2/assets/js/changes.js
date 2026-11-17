@@ -20,7 +20,6 @@
   var TODO = [
     'Real before screenshots for Decisions 02 and 03 would beat my diagrams. Send them and I will swap them in.',
     'Status for Decisions 02 and 03: shipped, in development or proposed? They show no status until you tell me.',
-    'How you got buy-in for Decision 01: I used your Hick\'s Law point. Add how you presented it (side by side, support data...) if you want more.',
     'Keep "first customer interviews" only if that is accurate.',
     'Contact form vs. a plain email and LinkedIn link: your call.'
   ];
