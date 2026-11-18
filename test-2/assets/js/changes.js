@@ -2,9 +2,9 @@
 // Delete this file (and its <script> tag) before merging into main.
 (function () {
   var CHANGES = [
-    { n: 1, t: 'Hero shows the app', d: 'Three Tu Financiera screens stand on your warm gradient, in place of the dot grid.' },
+    { n: 1, t: 'Intro card under the headline', d: 'Your photo next to a "Hi, I\'m Luis." card on the warm gradient: your role, the redesign, the design system, and three chips (Asunción, English & Spanish, Liberty University). It replaces the three phones and the two buttons.' },
     { n: 2, t: 'Project cards show the work', d: 'Each card keeps its gradient photo and now carries real screens: app phones for Tu Financiera and FitFlex, Figma variables and text styles for the Design System.' },
-    { n: 3, t: 'Headline in your own words', d: '"Making finance feel simple" echoes your About title. The line under it is your original sentence, with your role added.' },
+    { n: 3, t: 'Headline is your title', d: '"Product & UX/UI designer", with your original sentence under it.' },
     { n: 4, t: 'Tu Financiera told once', d: 'One featured case study opens the projects: five screens, your original description and three results. The "Who I am" block, its stats band, the "Want the full story?" strip and the second teaser lower down are gone, so the work comes right after the hero.' },
     { n: 5, t: 'Filler sections cut', d: 'Services and the Don Norman quote are removed from the home page.', removed: true },
     { n: 7, t: 'Key decisions have visuals', d: 'Decision 01 shows the home that shipped. Decisions 02 and 03 get a before and after flow built from your own text.' },
