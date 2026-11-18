@@ -1040,3 +1040,22 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .decision.has-shot .decision-shot { grid-row: 1 / span 7; }
 @media (max-width: 760px) { .decision.has-shot .decision-shot { grid-row: auto; } }
+
+/* ================= test-2: home intro card ================= */
+.hero-intro { display: grid; grid-template-columns: 37% minmax(0, 1fr); height: 440px; margin-top: 56px; border-radius: 32px; overflow: hidden; text-align: left; -webkit-mask-image: linear-gradient(#000 0 0); mask-image: linear-gradient(#000 0 0); }
+.hi-photo { position: relative; background: #3a322b; }
+.hi-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.hi-side { position: relative; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.hi-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hi-card { position: relative; width: 100%; max-width: 532px; padding: 32px 32px 28px; border-radius: 20px; background: rgb(36 27 20 / .84); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: 0 30px 60px -30px rgb(40 15 0 / .6); }
+.hi-title { margin: 0; font-family: var(--serif); font-size: 40px; line-height: 44px; font-weight: 400; letter-spacing: -0.03em; color: var(--ink); }
+.hi-card p { margin-top: 16px; font-size: 15px; line-height: 24px; color: rgb(243 234 223 / .82); }
+.hi-chips { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hi-chips li { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; background: rgb(255 255 255 / .07); color: var(--ink); font-size: 13px; line-height: 1; font-weight: 500; white-space: nowrap; }
+@media (max-width: 860px) {
+  .hero-intro { grid-template-columns: 1fr; height: auto; margin-top: 40px; border-radius: 28px; }
+  .hi-photo { aspect-ratio: 4 / 3.4; }
+  .hi-side { padding: 20px; }
+  .hi-card { max-width: none; padding: 24px 22px 22px; }
+  .hi-title { font-size: 34px; line-height: 38px; }
+}
