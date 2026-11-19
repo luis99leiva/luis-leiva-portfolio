@@ -1059,3 +1059,13 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .hi-card { max-width: none; padding: 24px 22px 22px; }
   .hi-title { font-size: 34px; line-height: 38px; }
 }
+
+/* test-2: home featured card, phones centered in the box */
+.fc-screens { align-items: center; }
+.fc-screens .over { align-items: center; margin-bottom: 0; }
+.fc-screens .phone:nth-child(n) { margin-bottom: 0; }
+@media (max-width: 760px) {
+  .fc-screens { height: 330px; }
+  .fc-screens .over { gap: 3%; padding: 0 16px; }
+  .fc-screens .phone { flex: 0 0 29%; width: 29%; }
+}
