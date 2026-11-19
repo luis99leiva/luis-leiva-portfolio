@@ -1069,3 +1069,7 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .fc-screens .over { gap: 3%; padding: 0 16px; }
   .fc-screens .phone { flex: 0 0 29%; width: 29%; }
 }
+
+/* test-2: home stat tiles, numbers on one line whatever the label length */
+.fc-stats p { min-height: 36px; }
+@media (max-width: 760px) { .fc-stats p { min-height: 0; } }
