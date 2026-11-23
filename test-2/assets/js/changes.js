@@ -7,7 +7,7 @@
     { n: 3, t: 'Headline is your title', d: '"Product & UX/UI designer", with your original sentence under it.' },
     { n: 4, t: 'Tu Financiera told once', d: 'One featured case study opens the projects: five screens, your original description and three results. The "Who I am" block, its stats band, the "Want the full story?" strip and the second teaser lower down are gone, so the work comes right after the hero.' },
     { n: 5, t: 'Filler sections cut', d: 'Services and the Don Norman quote are removed from the home page.', removed: true },
-    { n: 7, t: 'Key decisions have visuals', d: 'Decision 01 shows the home that shipped. Decisions 02 and 03 get a before and after flow built from your own text.' },
+    { n: 7, t: 'Key decisions have visuals', d: 'Decision 01 shows the home that shipped. Decisions 03 and 04 get a before and after flow built from your own text.' },
     { n: 8, t: 'Flowers removed', d: 'Gone from the top of Projects, About and Contact (titles now centered) and from every footer.' },
     { n: 9, t: 'Contact options focused', d: '"Website design" and "SaaS product design" removed from the form.' },
     { n: 10, t: 'Same motion as the live site', d: 'Every reveal, headline blur, count-up, step line and hover zoom uses the live site timing, and the new hero phones rise in one after another.', removed: true },
@@ -16,11 +16,13 @@
     { n: 13, t: 'Strategy tabs from your Framer case study', d: 'The five pillars are tabs again, with your own titles, text and screens. Scheduled transfers moved to its own \'After launch\' chapter, so the main story is about the whole app.' },
     { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true },
     { n: 15, t: 'Copy from your Tu Financiera notes', d: 'New header and role (Lead Product Designer), shorter problem, the three decisions in one structure (tension or signal, what I did, trade-off), four product outcomes with one attribution line, what you delivered, and the new What\'s next. Project card copy updated on Home and Projects.' },
-    { n: 16, t: 'Before and after from your Figma', d: 'A new tabbed block in Strategy shows the old app next to what shipped for Login, Home, Credit card and Transfers, with what changed in each. Your shipped transfer screen also fills the "before" box in Decision 02. Names in the old screenshots are blurred.' }
+    { n: 16, t: 'Before and after from your Figma', d: 'A new tabbed block in Strategy shows the old app next to what shipped for Login, Home, Credit card and Transfers, with what changed in each. Your shipped transfer screen also fills the "before" box in Decision 03. Names in the old screenshots are blurred.' },
+    { n: 17, t: 'New decision: confirm the recipient', d: 'Decision 02 is the step your Figma marks as new: the recipient's name and account before the amount. The scheduled transfers decisions are now 03 and 04.' }
   ];
   var TODO = [
-    'Real before screenshots for Decisions 02 and 03 would beat my diagrams. Send them and I will swap them in.',
-    'Status for Decisions 02 and 03: shipped, in development or proposed? They show no status until you tell me.',
+    'Real before screenshots for Decisions 03 and 04 would beat my diagrams. Send them and I will swap them in.',
+    'Status for Decisions 02, 03 and 04: shipped, in development or proposed? They show no status until you tell me.',
+    'Decision 02 (confirm the recipient): check the tension and trade-off. I wrote them from your Figma screens, not from your notes.',
     'Keep "first customer interviews" only if that is accurate.',
     'Contact form vs. a plain email and LinkedIn link: your call.'
   ];
