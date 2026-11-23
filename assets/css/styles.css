@@ -1071,7 +1071,8 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 @media (max-width: 760px) {
   .fc-screens { height: 330px; }
   .fc-screens .over { gap: 3%; padding: 0 16px; }
-  .fc-screens .phone { flex: 0 0 29%; width: 29%; }
+  .fc-screens .phone { flex: 0 0 29%; width: 29%; padding: 4px; border-radius: 18px; }
+  .fc-screens .phone img { border-radius: 14px; }
   .fc-screens .phone:nth-child(n) { margin: 22px 0 0; }
   .fc-screens .phone:nth-child(2) { margin: 0 0 22px; }
 }
