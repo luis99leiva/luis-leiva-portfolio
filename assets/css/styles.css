@@ -1092,3 +1092,27 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .shots-ff .phone { padding: 4px; border-radius: 24px; }
   .shots-ff .phone img { border-radius: 20px; }
 }
+
+/* ================= test-2: before and after (Figma page 7) ================= */
+.ba-tabs { margin-top: 24px; }
+.tab-media.ba-media { height: auto; min-height: 420px; padding: 28px 20px 22px; display: flex; align-items: flex-start; justify-content: center; gap: 18px; }
+.ba-shot { margin: 0; width: 44%; max-width: 172px; text-align: center; }
+.ba-media.three .ba-shot { width: 31%; max-width: 150px; }
+.ba-tabs .tab-panel { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+.ba-shot .phone { width: 100%; padding: 5px; border-radius: 28px; }
+.ba-shot .phone img { border-radius: 23px; }
+.ba-shot figcaption { display: inline-flex; margin-top: 12px; padding: 4px 10px; border-radius: 999px; background: rgb(255 255 255 / .06); color: var(--muted); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+.ba-shot.after figcaption { background: rgb(110 200 140 / .12); color: #8fd6a6; }
+.ba-media.three .ba-shot .phone { padding: 4px; border-radius: 24px; }
+.ba-media.three .ba-shot .phone img { border-radius: 20px; }
+.slot.filled .phone { width: 100%; padding: 4px; border-radius: 24px; }
+.slot.filled .phone img { border-radius: 20px; }
+@media (max-width: 760px) {
+  .ba-tabs .tab-panel { grid-template-columns: 1fr; }
+  .tab-media.ba-media { min-height: 0; padding: 20px 12px 16px; gap: 10px; }
+  .ba-shot .phone { padding: 4px; border-radius: 22px; }
+  .ba-shot .phone img { border-radius: 18px; }
+  .ba-media.three .ba-shot .phone { padding: 3px; border-radius: 16px; }
+  .ba-media.three .ba-shot .phone img { border-radius: 13px; }
+  .ba-shot figcaption { font-size: 11px; padding: 3px 8px; }
+}
