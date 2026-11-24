@@ -608,7 +608,7 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
 .stage .why b { color: var(--ink); font-weight: 500; }
 
 .flow-frame { overflow-x: auto; }
-.flow { display: block; width: 100%; min-width: 640px; height: auto; }
+.flow { display: block; width: 100%; height: auto; }
 .flow rect { fill: var(--chip); stroke: var(--line); }
 .flow .t { fill: var(--ink); font: 500 15px var(--sans); }
 .flow .s { fill: var(--muted); font: 13px var(--sans); }
@@ -1145,3 +1145,26 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .flow-h { display: none; }
   .flow-v { display: block; width: 100%; max-width: 340px; min-width: 0; margin: 0 auto; }
 }
+
+/* test-2: figures open in a modal */
+.fig .frame.zoomable { position: relative; cursor: zoom-in; transition: border-color .3s var(--ease-soft); }
+.fig .frame.zoomable:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.zoom-hint { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgb(20 14 10 / .7); color: var(--ink); opacity: .75; transition: opacity .3s var(--ease-soft), transform .3s var(--ease); pointer-events: none; }
+.zoom-hint svg { width: 13px; height: 13px; }
+@media (hover: hover) { .fig .frame.zoomable:hover .zoom-hint { opacity: 1; transform: scale(1.08); } .fig .frame.zoomable:hover { border-color: rgb(255 255 255 / .14); } }
+html.lb-open { overflow: hidden; }
+.lightbox { width: min(1200px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: visible; }
+.lightbox[open] { animation: lb-in .35s var(--ease); }
+.lightbox::backdrop { background: rgb(8 6 4 / .84); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+@keyframes lb-in { from { opacity: 0; transform: scale(.97); } }
+.lb-inner { position: relative; max-height: calc(100dvh - 32px); overflow: auto; padding: 56px 24px 22px; border-radius: 24px; background: var(--band); border: 1px solid var(--line); }
+.lb-close { position: absolute; top: 12px; right: 12px; z-index: 2; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--chip); color: var(--ink); cursor: pointer; }
+.lb-close svg { width: 13px; height: 13px; }
+.lb-body .frame { display: grid; place-items: center; padding: 0; border: 0; background: none; border-radius: 0; overflow: visible; }
+.lb-body img { display: block; width: auto; max-width: 100%; max-height: calc(100dvh - 190px); margin: 0 auto; border-radius: 12px; }
+.lb-body .flow { max-height: calc(100dvh - 190px); }
+.lb-cap { margin-top: 18px; font-size: 13px; line-height: 19px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.lb-cap b { color: var(--ink); font-weight: 600; margin-right: 6px; }
+/* in the modal the wide diagram has room from tablet width up */
+@media (min-width: 641px) { .lightbox .flow-h { display: block; } .lightbox .flow-v { display: none; } }
+@media (max-width: 640px) { .lightbox .flow-h { display: none; } .lightbox .flow-v { display: block; max-width: 360px; margin: 0 auto; } .lb-inner { padding: 52px 16px 18px; } }

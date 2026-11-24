@@ -346,6 +346,54 @@
     tocUpdate();
   }
 
+  // Case study figures open larger in a modal when tapped or clicked
+  var figs = document.querySelectorAll('.fig .frame');
+  if (figs.length && window.HTMLDialogElement) {
+    var lb = document.createElement('dialog');
+    lb.className = 'lightbox';
+    lb.setAttribute('aria-label', 'Figure, enlarged');
+    lb.innerHTML = '<div class="lb-inner"><button type="button" class="lb-close" aria-label="Close"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 3 6 6M9 3 3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="lb-body"></div><div class="lb-cap"></div></div>';
+    document.body.appendChild(lb);
+    var lbBody = lb.querySelector('.lb-body'), lbCap = lb.querySelector('.lb-cap'), lbFrom = null;
+    var lbClose = function () { if (lb.open) lb.close(); };
+    lb.addEventListener('close', function () {
+      document.documentElement.classList.remove('lb-open');
+      lbBody.innerHTML = ''; lbCap.innerHTML = '';
+      if (lbFrom) lbFrom.focus();
+    });
+    lb.querySelector('.lb-close').addEventListener('click', lbClose);
+    lb.addEventListener('click', function (ev) { if (ev.target === lb) lbClose(); });
+    var lbOpen = function (frame) {
+      lbFrom = frame;
+      var copy = frame.cloneNode(true);
+      copy.removeAttribute('role'); copy.removeAttribute('tabindex'); copy.removeAttribute('aria-label');
+      var hint = copy.querySelector('.zoom-hint'); if (hint) hint.remove();
+      // SVG ids must stay unique, or arrowheads point at the hidden original
+      copy.querySelectorAll('[id]').forEach(function (el) {
+        var old = el.id, neu = old + '-lb';
+        el.id = neu;
+        copy.querySelectorAll('[marker-end="url(#' + old + ')"]').forEach(function (m) { m.setAttribute('marker-end', 'url(#' + neu + ')'); });
+      });
+      copy.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+      lbBody.appendChild(copy);
+      var cap = frame.parentNode.querySelector('figcaption');
+      if (cap) lbCap.innerHTML = cap.innerHTML;
+      document.documentElement.classList.add('lb-open');
+      lb.showModal();
+    };
+    figs.forEach(function (frame) {
+      frame.classList.add('zoomable');
+      frame.setAttribute('role', 'button');
+      frame.setAttribute('tabindex', '0');
+      frame.setAttribute('aria-label', 'Open this figure larger');
+      frame.insertAdjacentHTML('beforeend', '<span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M7 2h3v3M5 10H2V7M10 2 6.5 5.5M2 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>');
+      frame.addEventListener('click', function () { lbOpen(frame); });
+      frame.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); lbOpen(frame); }
+      });
+    });
+  }
+
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 })();

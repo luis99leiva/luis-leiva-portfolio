@@ -17,7 +17,8 @@
     { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true },
     { n: 15, t: 'Copy from your Tu Financiera notes', d: 'New header and role (Lead Product Designer), shorter problem, the three decisions in one structure (tension or signal, what I did, trade-off), four product outcomes with one attribution line, what you delivered, and the new What\'s next. Project card copy updated on Home and Projects.' },
     { n: 16, t: 'Before and after from your Figma', d: 'A new tabbed block in Strategy shows the old app next to what shipped for Login, Home, Credit card and Transfers, with what changed in each. Your shipped transfer screen also fills the "before" box in Decision 03. Names in the old screenshots are blurred.' },
-    { n: 17, t: 'New decision: confirm the recipient', d: 'Decision 02 is the step your Figma marks as new: the recipient's name and account before the amount. The scheduled transfers decisions are now 03 and 04.' }
+    { n: 17, t: 'New decision: confirm the recipient', d: 'Decision 02 is the step your Figma marks as new: the recipient's name and account before the amount. The scheduled transfers decisions are now 03 and 04.' },
+    { n: 18, t: 'Figures open larger', d: 'Tap or click any figure in a case study to open it in a modal. Fig 02.1 now fits tablets, and turns vertical on phones.', removed: true }
   ];
   var TODO = [
     'Real before screenshots for Decisions 03 and 04 would beat my diagrams. Send them and I will swap them in.',
