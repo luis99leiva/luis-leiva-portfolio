@@ -386,7 +386,6 @@
       frame.setAttribute('role', 'button');
       frame.setAttribute('tabindex', '0');
       frame.setAttribute('aria-label', 'Open this figure larger');
-      frame.insertAdjacentHTML('beforeend', '<span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M7 2h3v3M5 10H2V7M10 2 6.5 5.5M2 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>');
       frame.addEventListener('click', function () { lbOpen(frame); });
       frame.addEventListener('keydown', function (ev) {
         if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); lbOpen(frame); }
