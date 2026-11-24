@@ -1116,3 +1116,14 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   .ba-media.three .ba-shot .phone img { border-radius: 13px; }
   .ba-shot figcaption { font-size: 11px; padding: 3px 8px; }
 }
+
+/* test-2: every phone mockup keeps the same corner shape at any size.
+   The phone is a size container, so the frame and corner radius are measured in cqi
+   (a share of the phone's own width) and scale together. Small phones get a floor. */
+.phone { container-type: inline-size; padding: 0 !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; }
+.phone img, .phone video {
+  box-sizing: border-box;
+  border: max(2.8cqi, 3px) solid #151210 !important;
+  border-radius: max(12cqi, 11px) !important;
+  box-shadow: 0 0 0 1px #3b3530, 0 40px 60px -24px rgb(20 10 0 / .55);
+}
