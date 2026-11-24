@@ -1137,3 +1137,11 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
   border-radius: max(16.8cqi, 14px) !important;  /* iPhone: screen corner 55pt on a 393pt width (14%) plus the frame */
   box-shadow: 0 0 0 1px #3b3530, 0 40px 60px -24px rgb(20 10 0 / .55);
 }
+
+/* test-2: Fig 02.1 turns vertical on phones instead of scrolling sideways */
+.flow-v { display: none; }
+@media (max-width: 760px) {
+  .flow-frame { overflow: visible; padding: 22px 16px; }
+  .flow-h { display: none; }
+  .flow-v { display: block; width: 100%; max-width: 340px; min-width: 0; margin: 0 auto; }
+}
