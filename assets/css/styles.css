@@ -1149,9 +1149,7 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 /* test-2: figures open in a modal */
 .fig .frame.zoomable { position: relative; cursor: zoom-in; transition: border-color .3s var(--ease-soft); }
 .fig .frame.zoomable:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.zoom-hint { position: absolute; top: 12px; right: 12px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgb(20 14 10 / .7); color: var(--ink); opacity: .75; transition: opacity .3s var(--ease-soft), transform .3s var(--ease); pointer-events: none; }
-.zoom-hint svg { width: 13px; height: 13px; }
-@media (hover: hover) { .fig .frame.zoomable:hover .zoom-hint { opacity: 1; transform: scale(1.08); } .fig .frame.zoomable:hover { border-color: rgb(255 255 255 / .14); } }
+@media (hover: hover) { .fig .frame.zoomable:hover { border-color: rgb(255 255 255 / .14); } }
 html.lb-open { overflow: hidden; }
 .lightbox { width: min(1200px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 0; background: transparent; color: var(--ink); overflow: visible; }
 .lightbox[open] { animation: lb-in .35s var(--ease); }
