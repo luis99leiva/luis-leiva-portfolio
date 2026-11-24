@@ -1124,6 +1124,6 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .phone img, .phone video {
   box-sizing: border-box;
   border: max(2.8cqi, 3px) solid #151210 !important;
-  border-radius: max(12cqi, 11px) !important;
+  border-radius: max(16.8cqi, 14px) !important;  /* iPhone: screen corner 55pt on a 393pt width (14%) plus the frame */
   box-shadow: 0 0 0 1px #3b3530, 0 40px 60px -24px rgb(20 10 0 / .55);
 }
