@@ -1052,12 +1052,22 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .hi-card p { margin-top: 16px; font-size: 15px; line-height: 24px; color: rgb(243 234 223 / .82); }
 .hi-chips { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .hi-chips li { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; background: rgb(255 255 255 / .07); color: var(--ink); font-size: 13px; line-height: 1; font-weight: 500; white-space: nowrap; }
-@media (max-width: 860px) {
-  .hero-intro { grid-template-columns: 1fr; height: auto; margin-top: 40px; border-radius: 28px; }
-  .hi-photo { aspect-ratio: 4 / 3.4; }
-  .hi-side { padding: 20px; }
-  .hi-card { max-width: none; padding: 24px 22px 22px; }
+/* tablets keep the photo beside the card, so the face stays a normal size */
+@media (max-width: 1000px) {
+  .hero-intro { grid-template-columns: 38% minmax(0, 1fr); height: auto; min-height: 380px; margin-top: 44px; border-radius: 28px; }
+  .hi-photo img { object-position: 50% 22%; }
+  .hi-side { padding: 28px; }
+  .hi-card { padding: 26px 24px 22px; }
   .hi-title { font-size: 34px; line-height: 38px; }
+}
+/* phones stack them, with a short photo band cropped to the face */
+@media (max-width: 640px) {
+  .hero-intro { grid-template-columns: 1fr; min-height: 0; margin-top: 36px; }
+  .hi-photo { aspect-ratio: 16 / 10; }
+  .hi-photo img { object-position: 50% 12%; }
+  .hi-side { padding: 16px; }
+  .hi-card { max-width: none; padding: 22px 20px 20px; }
+  .hi-title { font-size: 30px; line-height: 34px; }
 }
 
 /* test-2: home featured card, phones centered in the box */
