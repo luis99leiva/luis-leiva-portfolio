@@ -1182,3 +1182,5 @@ html.lb-open { overflow: hidden; }
 @media (max-width: 760px) {
   .cs-meta.four, .cs-meta.four.with-credits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+/* credit names start on their own line, under the label */
+.cs-meta .credits dd b { display: block; }
