@@ -1166,3 +1166,7 @@ html.lb-open { overflow: hidden; }
 /* in the modal the wide diagram has room from tablet width up */
 @media (min-width: 641px) { .lightbox .flow-h { display: block; } .lightbox .flow-v { display: none; } }
 @media (max-width: 640px) { .lightbox .flow-h { display: none; } .lightbox .flow-v { display: block; max-width: 360px; margin: 0 auto; } .lb-inner { padding: 52px 16px 18px; } }
+
+/* test-2: Decision 04 phone matches the Decision 03 phones */
+@media (min-width: 1101px) { .decision.has-slots.one { grid-template-columns: minmax(0, 1fr) 150px; } }
+@media (max-width: 1100px) { .decision.has-slots.one .decision-slots { max-width: calc((min(340px, 100%) - 16px) / 2); } }
