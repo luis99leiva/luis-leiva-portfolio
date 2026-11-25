@@ -1184,3 +1184,7 @@ html.lb-open { overflow: hidden; }
 }
 /* credit names start on their own line, under the label */
 .cs-meta .credits dd b { display: block; }
+
+/* test-2: cover buttons lighten a little on hover instead of turning white */
+.back-pill, .next-dot { transition: background-color .35s var(--ease-soft); }
+@media (hover: hover) { .back-pill:hover, .next-dot:hover { background: var(--chip); } }
