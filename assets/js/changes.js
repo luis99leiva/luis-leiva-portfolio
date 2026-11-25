@@ -25,7 +25,6 @@
   ];
   var TODO = [
     'Real before screenshots for Decisions 03 and 04 would beat my diagrams. Send them and I will swap them in.',
-    'Status for Decisions 02, 03 and 04: shipped, in development or proposed? They show no status until you tell me.',
     'Decision 02 (confirm the recipient): check the tension and trade-off. I wrote them from your Figma screens, not from your notes.',
     'Keep "first customer interviews" only if that is accurate.',
     'Contact form vs. a plain email and LinkedIn link: your call.'
