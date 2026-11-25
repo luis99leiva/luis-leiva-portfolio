@@ -28,8 +28,7 @@
     'Status for Decisions 02, 03 and 04: shipped, in development or proposed? They show no status until you tell me.',
     'Decision 02 (confirm the recipient): check the tension and trade-off. I wrote them from your Figma screens, not from your notes.',
     'Keep "first customer interviews" only if that is accurate.',
-    'Contact form vs. a plain email and LinkedIn link: your call.',
-    'Credits: add the PM’s name, and the developers’ names if you want them listed.'
+    'Contact form vs. a plain email and LinkedIn link: your call.'
   ];
 
   var css = document.createElement('style');
