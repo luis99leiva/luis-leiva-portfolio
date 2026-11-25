@@ -1174,11 +1174,11 @@ html.lb-open { overflow: hidden; }
 /* test-2: four facts and credits */
 .cs-meta.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .cs-meta.four dd span { display: inline; }
-.credits dl { margin: 16px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
-.credits dl > div { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.credits dt { font-size: 15px; line-height: 22px; color: var(--muted); }
-.credits dd { margin: 0; font-size: 15px; line-height: 22px; font-weight: 500; color: var(--ink); }
+.cs-meta.four.with-credits { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.6fr); }
+.cs-meta .credits dd span { display: block; font-size: 14px; line-height: 21px; }
+.cs-meta .credits dd span + span { margin-top: 4px; }
+.cs-meta .credits dd b { font-weight: 500; color: var(--ink); }
+@media (max-width: 1100px) { .cs-meta.four.with-credits { grid-template-columns: repeat(4, minmax(0, 1fr)); } .cs-meta .credits { grid-column: 1 / -1; } }
 @media (max-width: 760px) {
-  .cs-meta.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .credits dl > div { grid-template-columns: 1fr; gap: 2px; }
+  .cs-meta.four, .cs-meta.four.with-credits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

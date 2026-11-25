@@ -21,7 +21,7 @@
     { n: 18, t: 'Figures open larger', d: 'Tap or click any figure in a case study to open it in a modal. Fig 02.1 now fits tablets, and turns vertical on phones.', removed: true },
     { n: 19, t: 'Decision 03 screen', d: 'One phone, laid out like Decision 04: the savings account with "Tus agendamientos" from your Figma. The before image is gone.' },
     { n: 20, t: 'Decision 04 screen', d: 'The schedule summary from your Figma fills the empty image box: failed months marked "No se envió", a Reintentar button, and options to pause or change the schedule.' },
-    { n: 21, t: 'Simpler facts and Credits', d: 'The facts under the intro are now Role, Timeline, Team and Impact, with no extra lines. A Credits list closes the case study.' }
+    { n: 21, t: 'Simpler facts and Credits', d: 'The facts under the intro are now Role, Timeline, Team and Impact, with no extra lines. Credits sit next to Impact.' }
   ];
   var TODO = [
     'Real before screenshots for Decisions 03 and 04 would beat my diagrams. Send them and I will swap them in.',
