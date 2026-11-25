@@ -17,17 +17,19 @@
     { n: 14, t: 'Section list on the case studies', d: 'Small dashes on the right edge mark the chapters and show where you are. Point at them to see the names and jump to a section. On phones and tablets it becomes a pill at the top that names the current chapter and opens the list on tap. On all three case studies.', removed: true },
     { n: 15, t: 'Copy from your Tu Financiera notes', d: 'New header and role (Lead Product Designer), shorter problem, the three decisions in one structure (tension or signal, what I did, trade-off), four product outcomes with one attribution line, what you delivered, and the new What\'s next. Project card copy updated on Home and Projects.' },
     { n: 16, t: 'Before and after from your Figma', d: 'A new tabbed block in Strategy shows the old app next to what shipped for Login, Home, Credit card and Transfers, with what changed in each. Your shipped transfer screen also fills the "before" box in Decision 03. Names in the old screenshots are blurred.' },
-    { n: 17, t: 'New decision: confirm the recipient', d: 'Decision 02 is the step your Figma marks as new: the recipient's name and account before the amount. The scheduled transfers decisions are now 03 and 04.' },
+    { n: 17, t: 'New decision: confirm the recipient', d: 'Decision 02 is the step your Figma marks as new: the recipient’s name and account before the amount. The scheduled transfers decisions are now 03 and 04.' },
     { n: 18, t: 'Figures open larger', d: 'Tap or click any figure in a case study to open it in a modal. Fig 02.1 now fits tablets, and turns vertical on phones.', removed: true },
     { n: 19, t: 'Decision 03 screen', d: 'One phone, laid out like Decision 04: the savings account with "Tus agendamientos" from your Figma. The before image is gone.' },
-    { n: 20, t: 'Decision 04 screen', d: 'The schedule summary from your Figma fills the empty image box: failed months marked "No se envió", a Reintentar button, and options to pause or change the schedule.' }
+    { n: 20, t: 'Decision 04 screen', d: 'The schedule summary from your Figma fills the empty image box: failed months marked "No se envió", a Reintentar button, and options to pause or change the schedule.' },
+    { n: 21, t: 'Simpler facts and Credits', d: 'The facts under the intro are now Role, Timeline, Team and Impact, with no extra lines. A Credits list closes the case study.' }
   ];
   var TODO = [
     'Real before screenshots for Decisions 03 and 04 would beat my diagrams. Send them and I will swap them in.',
     'Status for Decisions 02, 03 and 04: shipped, in development or proposed? They show no status until you tell me.',
     'Decision 02 (confirm the recipient): check the tension and trade-off. I wrote them from your Figma screens, not from your notes.',
     'Keep "first customer interviews" only if that is accurate.',
-    'Contact form vs. a plain email and LinkedIn link: your call.'
+    'Contact form vs. a plain email and LinkedIn link: your call.',
+    'Credits: add the PM’s name, and the developers’ names if you want them listed.'
   ];
 
   var css = document.createElement('style');
