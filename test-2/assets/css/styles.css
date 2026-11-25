@@ -1186,5 +1186,6 @@ html.lb-open { overflow: hidden; }
 .cs-meta .credits dd b { display: block; }
 
 /* test-2: cover buttons lighten a little on hover instead of turning white */
-.back-pill, .next-dot { transition: background-color .35s var(--ease-soft); }
-@media (hover: hover) { .back-pill:hover, .next-dot:hover { background: var(--chip); } }
+.back-pill, .next-dot { transition: background-color .3s var(--ease-soft), transform .3s var(--ease-soft); }
+@media (hover: hover) { .back-pill:hover, .next-dot:hover { background: #3d3026; transform: scale(1.05); } }
+.back-pill:active, .next-dot:active { transform: scale(.97); }
