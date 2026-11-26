@@ -1054,6 +1054,15 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .hi-card p { margin-top: 16px; font-size: 15px; line-height: 24px; color: rgb(243 234 223 / .82); }
 .hi-chips { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .hi-chips li { display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 999px; background: rgb(255 255 255 / .07); color: var(--ink); font-size: 13px; line-height: 1; font-weight: 500; white-space: nowrap; }
+.hi-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgb(255 255 255 / .1); }
+.hi-btn { padding: 8px 14px; border-radius: 999px; background: #f3eadf; color: #2b180a; font-size: 13px; font-weight: 500; line-height: 18px; text-decoration: none; transition: background .25s var(--ease); }
+.hi-link { display: inline-flex; align-items: center; gap: 6px; color: rgb(243 234 223 / .8); font-size: 13px; font-weight: 500; line-height: 18px; text-decoration: none; transition: color .25s var(--ease); }
+.hi-link svg { width: 12px; height: 12px; transition: transform .25s var(--ease); }
+@media (hover: hover) {
+  .hi-btn:hover { background: #fff; }
+  .hi-link:hover { color: #f3eadf; }
+  .hi-link:hover svg { transform: translateX(3px); }
+}
 /* tablets keep the photo beside the card, so the face stays a normal size */
 @media (max-width: 1000px) {
   .hero-intro { grid-template-columns: 38% minmax(0, 1fr); height: auto; min-height: 380px; margin-top: 44px; border-radius: 28px; }
