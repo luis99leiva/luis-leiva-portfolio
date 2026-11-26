@@ -832,6 +832,8 @@ a.card:hover .photo > img.bg, a.card:focus-visible .photo > img.bg { filter: bri
 .shots-ds .panel { position: absolute; border-radius: 12px; box-shadow: 0 30px 60px -18px rgb(30 12 0 / .6), 0 0 0 1px rgb(255 255 255 / .08); transition: transform .5s var(--ease); }
 .shots-ds .panel-1 { left: 8%; top: 17%; width: 58%; }
 .shots-ds .panel-2 { right: 8%; top: 31%; width: 32%; }
+.shots-cx .panel-1 { left: 7%; top: 16%; width: 62%; }
+.shots-cx .panel-2 { right: 7%; top: 36%; width: 36%; }
 @media (hover: hover) {
   a.card:hover .shots .phone { transform: translateY(-8px); }
   a.card:hover .shots-ds .panel { transform: translateY(-6px); }
