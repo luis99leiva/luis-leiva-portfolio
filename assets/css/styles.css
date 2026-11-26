@@ -1200,3 +1200,6 @@ html.lb-open { overflow: hidden; }
   transition: opacity .15s ease-out, transform .15s ease-out;
 }
 @media (hover: hover) { .next-dot[data-tip]:hover::after, .next-dot[data-tip]:focus-visible::after { opacity: 1; transform: translate(0, -50%); } }
+
+/* four facts instead of five, with the usual smaller-screen columns */
+@media (min-width: 810px) { .cs-meta.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
