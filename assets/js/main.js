@@ -261,6 +261,138 @@
     });
   });
 
+  // Case study tabs: one panel at a time, arrow keys move between tabs
+  document.querySelectorAll('[data-tabs]').forEach(function (box) {
+    var tabs = box.querySelectorAll('[role="tab"]');
+    var pick = function (t) {
+      tabs.forEach(function (o) {
+        var on = o === t;
+        o.setAttribute('aria-selected', String(on)); o.tabIndex = on ? 0 : -1;
+        document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+      });
+    };
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(t); });
+      t.addEventListener('keydown', function (ev) {
+        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        ev.preventDefault();
+        var n = tabs[(i + d + tabs.length) % tabs.length];
+        n.focus(); pick(n);
+      });
+    });
+  });
+
+  // Case studies: section list on the right edge. Dashes mark the chapters, the current one
+  // is longer and brighter, and hovering (or tabbing in) opens the names.
+  var chapters = document.querySelectorAll('.row.chapter');
+  if (chapters.length > 2) {
+    var toc = document.createElement('nav');
+    toc.className = 'toc';
+    toc.setAttribute('aria-label', 'Case study sections');
+    var tocList = document.createElement('ol');
+    var tocLinks = [], tocNames = [];
+    chapters.forEach(function (ch, i) {
+      var lab = ch.querySelector('.row-label'), num = lab && lab.querySelector('b');
+      var name = lab ? lab.textContent.replace(num ? num.textContent : '', '').trim() : 'Section ' + (i + 1);
+      if (!ch.id) ch.id = 'section-' + (i + 1);
+      tocNames.push((num ? num.textContent + ' \u00b7 ' : '') + name);
+      var li = document.createElement('li'), link = document.createElement('a'), text = document.createElement('span');
+      link.href = '#' + ch.id;
+      text.textContent = name;
+      link.appendChild(text);
+      link.appendChild(document.createElement('i'));
+      link.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        tocClose();
+        window.scrollTo({ top: ch.getBoundingClientRect().top + window.scrollY + 40, behavior: 'smooth' });
+        if (history.replaceState) history.replaceState(null, '', '#' + ch.id);
+      });
+      li.appendChild(link); tocList.appendChild(li); tocLinks.push(link);
+    });
+    // phones and tablets: a pill at the top names the current chapter and opens the list on tap
+    var tocBtn = document.createElement('button');
+    tocBtn.type = 'button';
+    tocBtn.className = 'toc-toggle';
+    tocBtn.setAttribute('aria-expanded', 'false');
+    tocBtn.setAttribute('aria-label', 'Case study sections');
+    var tocNow = document.createElement('span');
+    tocBtn.appendChild(tocNow);
+    tocBtn.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    var tocClose = function () { toc.classList.remove('open'); tocBtn.setAttribute('aria-expanded', 'false'); };
+    tocBtn.addEventListener('click', function () {
+      tocBtn.setAttribute('aria-expanded', String(toc.classList.toggle('open')));
+    });
+    document.addEventListener('click', function (ev) { if (!toc.contains(ev.target)) tocClose(); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') tocClose(); });
+    toc.appendChild(tocBtn);
+    toc.appendChild(tocList);
+    document.body.appendChild(toc);
+    var tocUpdate = function () {
+      var mark = window.innerHeight * 0.45, cur = -1;
+      chapters.forEach(function (ch, i) { if (ch.getBoundingClientRect().top <= mark) cur = i; });
+      var last = chapters[chapters.length - 1].getBoundingClientRect();
+      var shown = cur > -1 && last.bottom > window.innerHeight * 0.3;
+      toc.classList.toggle('show', shown);
+      if (!shown) tocClose();
+      if (cur > -1) tocNow.textContent = tocNames[cur];
+      tocLinks.forEach(function (l, i) {
+        l.classList.toggle('on', i === cur);
+        if (i === cur) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', tocUpdate, { passive: true });
+    window.addEventListener('resize', tocUpdate);
+    tocUpdate();
+  }
+
+  // Case study figures open larger in a modal when tapped or clicked
+  var figs = document.querySelectorAll('.fig .frame');
+  if (figs.length && window.HTMLDialogElement) {
+    var lb = document.createElement('dialog');
+    lb.className = 'lightbox';
+    lb.setAttribute('aria-label', 'Figure, enlarged');
+    lb.innerHTML = '<div class="lb-inner"><button type="button" class="lb-close" aria-label="Close"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 3 6 6M9 3 3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="lb-body"></div><div class="lb-cap"></div></div>';
+    document.body.appendChild(lb);
+    var lbBody = lb.querySelector('.lb-body'), lbCap = lb.querySelector('.lb-cap'), lbFrom = null;
+    var lbClose = function () { if (lb.open) lb.close(); };
+    lb.addEventListener('close', function () {
+      document.documentElement.classList.remove('lb-open');
+      lbBody.innerHTML = ''; lbCap.innerHTML = '';
+      if (lbFrom) lbFrom.focus();
+    });
+    lb.querySelector('.lb-close').addEventListener('click', lbClose);
+    lb.addEventListener('click', function (ev) { if (ev.target === lb) lbClose(); });
+    var lbOpen = function (frame) {
+      lbFrom = frame;
+      var copy = frame.cloneNode(true);
+      copy.removeAttribute('role'); copy.removeAttribute('tabindex'); copy.removeAttribute('aria-label');
+      var hint = copy.querySelector('.zoom-hint'); if (hint) hint.remove();
+      // SVG ids must stay unique, or arrowheads point at the hidden original
+      copy.querySelectorAll('[id]').forEach(function (el) {
+        var old = el.id, neu = old + '-lb';
+        el.id = neu;
+        copy.querySelectorAll('[marker-end="url(#' + old + ')"]').forEach(function (m) { m.setAttribute('marker-end', 'url(#' + neu + ')'); });
+      });
+      copy.querySelectorAll('img').forEach(function (i) { i.loading = 'eager'; });
+      lbBody.appendChild(copy);
+      var cap = frame.parentNode.querySelector('figcaption');
+      if (cap) lbCap.innerHTML = cap.innerHTML;
+      document.documentElement.classList.add('lb-open');
+      lb.showModal();
+    };
+    figs.forEach(function (frame) {
+      frame.classList.add('zoomable');
+      frame.setAttribute('role', 'button');
+      frame.setAttribute('tabindex', '0');
+      frame.setAttribute('aria-label', 'Open this figure larger');
+      frame.addEventListener('click', function () { lbOpen(frame); });
+      frame.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); lbOpen(frame); }
+      });
+    });
+  }
+
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 })();
