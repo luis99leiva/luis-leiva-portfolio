@@ -2,6 +2,10 @@
 (function () {
   document.documentElement.classList.remove('no-js');
 
+  // English or Spanish, from <html lang>
+  var ES = document.documentElement.lang === 'es';
+  var t = function (en, es) { return ES ? es : en; };
+
   // Paragraphs: a no-break space between the last two words, so no line ends up with one word alone
   var glue = function (p) {
     var tw = document.createTreeWalker(p, NodeFilter.SHOW_TEXT), n, last = null;
@@ -15,7 +19,30 @@
   if (btn) btn.addEventListener('click', function () {
     var open = document.body.classList.toggle('menu-open');
     btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    btn.setAttribute('aria-label', open ? t('Close menu', 'Cerrar menú') : t('Open menu', 'Abrir menú'));
+  });
+
+  // Language dropdown (EN / ES)
+  document.querySelectorAll('[data-lang]').forEach(function (box) {
+    var b = box.querySelector('.lang-btn');
+    var links = box.querySelectorAll('.lang-menu a');
+    var set = function (open, focus) {
+      box.classList.toggle('open', open);
+      b.setAttribute('aria-expanded', String(open));
+      if (open && focus) links[0].focus();
+    };
+    b.addEventListener('click', function () { set(!box.classList.contains('open')); });
+    b.addEventListener('keydown', function (ev) { if (ev.key === 'ArrowDown') { ev.preventDefault(); set(true, true); } });
+    box.addEventListener('keydown', function (ev) {
+      var i = Array.prototype.indexOf.call(links, document.activeElement);
+      if (ev.key === 'Escape') { set(false); b.focus(); }
+      else if (i > -1 && (ev.key === 'ArrowDown' || ev.key === 'ArrowUp')) {
+        ev.preventDefault();
+        links[(i + (ev.key === 'ArrowDown' ? 1 : links.length - 1)) % links.length].focus();
+      }
+    });
+    document.addEventListener('click', function (ev) { if (!box.contains(ev.target)) set(false); });
+    box.addEventListener('focusout', function (ev) { if (!box.contains(ev.relatedTarget)) set(false); });
   });
 
   // Headline words blur in, one after another
@@ -85,11 +112,13 @@
 
   // Stats count up from zero, keeping their prefix, suffix and separators
   var countUp = function (el) {
-    var m = el.textContent.trim().match(/^([^\d]*)([\d,]*\.?\d+)(.*)$/);
+    // English writes 2,923 and 73.5; Spanish writes 2.923 and 73,5
+    var th = ES ? '.' : ',', dec = ES ? ',' : '.';
+    var m = el.textContent.trim().match(ES ? /^([^\d]*)([\d.]*,?\d+)(.*)$/ : /^([^\d]*)([\d,]*\.?\d+)(.*)$/);
     if (!m) return;
-    var end = parseFloat(m[2].replace(/,/g, ''));
-    var decimals = (m[2].split('.')[1] || '').length;
-    var commas = m[2].indexOf(',') > -1;
+    var end = parseFloat(m[2].split(th).join('').replace(dec, '.'));
+    var decimals = (m[2].split(dec)[1] || '').length;
+    var commas = m[2].indexOf(th) > -1;
     var start = null;
     var step = function (t) {
       if (start === null) start = t;
@@ -97,7 +126,9 @@
       var v = end * (1 - Math.pow(2, -10 * p));
       if (p === 1) v = end;
       var s = v.toFixed(decimals);
-      if (commas) s = Number(s).toLocaleString('en-US', { minimumFractionDigits: decimals });
+      var parts = s.split('.');
+      if (commas) parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, th);
+      s = parts.join(dec);
       el.textContent = m[1] + s + m[3];
       if (p < 1) requestAnimationFrame(step);
     };
@@ -218,7 +249,7 @@
     var label = btn && btn.firstChild;          // the "Send message" text before the arrow icon
     var say = function (html) { if (note) note.innerHTML = html; };
     if (W3F_KEY) {
-      say('Goes straight to my inbox, or write to ' + MAIL);
+      say(t('Goes straight to my inbox, or write to ', 'Llega directo a mi correo, o escribime a ') + MAIL);
       if (note) note.setAttribute('aria-live', 'polite');
       // hidden spam trap: people never see or tick it, bots do
       var trap = document.createElement('input');
@@ -230,7 +261,7 @@
       ev.preventDefault();
       var v = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
       var topic = form.querySelector('[name="topic"]:checked');
-      var subject = 'Portfolio inquiry' + (topic ? ': ' + topic.value : '') + (v('name') ? ' from ' + v('name') : '');
+      var subject = 'Portfolio inquiry' + (topic ? ': ' + topic.value : '') + (v('name') ? ' from ' + v('name') : '') + (ES ? ' [ES]' : '');
       if (!W3F_KEY) {
         var body = v('message') + '\n\n' + v('name') + (v('email') ? '\n' + v('email') : '');
         window.location.href = 'mailto:luis99leiva@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.trim());
@@ -238,7 +269,7 @@
       }
       if (btn.disabled) return;
       btn.disabled = true;
-      label.data = 'Sending… ';
+      label.data = t('Sending… ', 'Enviando… ');
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -250,13 +281,13 @@
       }).then(function (r) { return r.json(); }).then(function (res) {
         if (!res.success) throw new Error(res.message);
         form.reset();
-        label.data = 'Message sent ';
-        say('Thanks, it&rsquo;s in my inbox. I usually reply within a couple of working days.');
-        setTimeout(function () { label.data = 'Send message '; btn.disabled = false; }, 4000);
+        label.data = t('Message sent ', 'Mensaje enviado ');
+        say(t('Thanks, it&rsquo;s in my inbox. I usually reply within a couple of working days.', 'Gracias, ya está en mi correo. Suelo responder en un par de días hábiles.'));
+        setTimeout(function () { label.data = t('Send message ', 'Enviar mensaje '); btn.disabled = false; }, 4000);
       }).catch(function () {
-        label.data = 'Send message ';
+        label.data = t('Send message ', 'Enviar mensaje ');
         btn.disabled = false;
-        say('That didn&rsquo;t go through. Please try again, or write to ' + MAIL);
+        say(t('That didn&rsquo;t go through. Please try again, or write to ', 'No se pudo enviar. Probá de nuevo, o escribime a ') + MAIL);
       });
     });
   });
@@ -289,12 +320,12 @@
   if (chapters.length > 2) {
     var toc = document.createElement('nav');
     toc.className = 'toc';
-    toc.setAttribute('aria-label', 'Case study sections');
+    toc.setAttribute('aria-label', t('Case study sections', 'Secciones del caso de estudio'));
     var tocList = document.createElement('ol');
     var tocLinks = [], tocNames = [];
     chapters.forEach(function (ch, i) {
       var lab = ch.querySelector('.row-label'), num = lab && lab.querySelector('b');
-      var name = lab ? lab.textContent.replace(num ? num.textContent : '', '').trim() : 'Section ' + (i + 1);
+      var name = lab ? lab.textContent.replace(num ? num.textContent : '', '').trim() : t('Section ', 'Sección ') + (i + 1);
       if (!ch.id) ch.id = 'section-' + (i + 1);
       tocNames.push((num ? num.textContent + ' \u00b7 ' : '') + name);
       var li = document.createElement('li'), link = document.createElement('a'), text = document.createElement('span');
@@ -315,7 +346,7 @@
     tocBtn.type = 'button';
     tocBtn.className = 'toc-toggle';
     tocBtn.setAttribute('aria-expanded', 'false');
-    tocBtn.setAttribute('aria-label', 'Case study sections');
+    tocBtn.setAttribute('aria-label', t('Case study sections', 'Secciones del caso de estudio'));
     var tocNow = document.createElement('span');
     tocBtn.appendChild(tocNow);
     tocBtn.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m2.5 4.5 3.5 3.5 3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
@@ -351,8 +382,8 @@
   if (figs.length && window.HTMLDialogElement) {
     var lb = document.createElement('dialog');
     lb.className = 'lightbox';
-    lb.setAttribute('aria-label', 'Figure, enlarged');
-    lb.innerHTML = '<div class="lb-inner"><button type="button" class="lb-close" aria-label="Close"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 3 6 6M9 3 3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="lb-body"></div><div class="lb-cap"></div></div>';
+    lb.setAttribute('aria-label', t('Figure, enlarged', 'Figura ampliada'));
+    lb.innerHTML = '<div class="lb-inner"><button type="button" class="lb-close" aria-label="' + t('Close', 'Cerrar') + '"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 3 6 6M9 3 3 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button><div class="lb-body"></div><div class="lb-cap"></div></div>';
     document.body.appendChild(lb);
     var lbBody = lb.querySelector('.lb-body'), lbCap = lb.querySelector('.lb-cap'), lbFrom = null;
     var lbClose = function () { if (lb.open) lb.close(); };
@@ -385,7 +416,7 @@
       frame.classList.add('zoomable');
       frame.setAttribute('role', 'button');
       frame.setAttribute('tabindex', '0');
-      frame.setAttribute('aria-label', 'Open this figure larger');
+      frame.setAttribute('aria-label', t('Open this figure larger', 'Ver esta figura más grande'));
       frame.addEventListener('click', function () { lbOpen(frame); });
       frame.addEventListener('keydown', function (ev) {
         if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); lbOpen(frame); }

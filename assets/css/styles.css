@@ -156,7 +156,37 @@ p { text-wrap: pretty; }
 .nav-links a[aria-current="page"] { color: var(--muted); }
 @media (hover: hover) { .nav-links a:hover { color: var(--muted); } }
 .brand { font-family: var(--serif); font-size: 32px; line-height: 35px; letter-spacing: -0.025em; color: #000; white-space: nowrap; }
-.nav-cta { justify-self: end; }
+.nav-end { justify-self: end; display: flex; align-items: center; gap: 12px; }
+
+/* language switcher */
+.lang { position: relative; }
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 37px; padding: 0 12px 0 14px;
+  border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent); border-radius: 999px;
+  background: transparent; color: var(--ink); font: 500 14px/21px var(--sans); letter-spacing: .02em; cursor: pointer;
+  transition: border-color .25s var(--ease), background-color .25s var(--ease);
+}
+.lang-btn svg { width: 12px; height: 12px; transition: transform .35s var(--ease); }
+.lang.open .lang-btn svg { transform: rotate(180deg); }
+.lang.open .lang-btn, .lang-btn:focus-visible { border-color: color-mix(in srgb, var(--ink) 55%, transparent); }
+@media (hover: hover) { .lang-btn:hover { border-color: color-mix(in srgb, var(--ink) 55%, transparent); } }
+.lang-menu {
+  position: absolute; top: calc(100% + 8px); left: 0; right: 0; z-index: 60;
+  display: grid; gap: 2px; padding: 6px;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); border-radius: 18px;
+  background: var(--band); box-shadow: 0 18px 40px -18px rgb(0 0 0 / .6);
+  opacity: 0; visibility: hidden; transform: translateY(-4px) scale(.97); transform-origin: top center;
+  transition: opacity .2s var(--ease), transform .25s var(--ease), visibility 0s linear .25s;
+}
+.lang.open .lang-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.lang-menu a {
+  display: block; padding: 8px 0; border-radius: 12px; text-align: center;
+  font-size: 14px; line-height: 21px; font-weight: 500; letter-spacing: .02em; color: var(--muted);
+  transition: color .2s, background-color .2s;
+}
+.lang-menu a[aria-current] { color: var(--ink); }
+@media (hover: hover) { .lang-menu a:hover { color: var(--ink); background: var(--chip); } }
+.lang-menu a:focus-visible { color: var(--ink); background: var(--chip); }
 .menu-btn {
   display: none; justify-self: end;
   width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; position: relative;
@@ -698,7 +728,9 @@ figcaption.cap b { color: var(--ink); font-weight: 500; margin-right: 8px; }
   .t-h3 { font-size: 24px; }
   .t-lead { font-size: 16px; line-height: 24px; }
 
-  .nav { height: 64px; grid-template-columns: 1fr auto; }
+  .nav { height: 64px; grid-template-columns: 1fr auto auto; }
+  .nav-end { gap: 4px; }
+  .lang-btn { height: 34px; }
   .brand { font-size: 28px; }
   .nav-links, .nav-cta { display: none; }
   .menu-btn { display: block; }
