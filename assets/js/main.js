@@ -166,7 +166,7 @@
   };
 
   // Intro loader: the name writes itself in, holds, then the panel lifts off the page.
-  // Plays once per browser session; the inline head script decides (and skips it for reduced motion).
+  // Plays when someone opens or reloads the site, not when clicking between pages; the inline head script decides.
   var root = document.documentElement;
   var loader = document.querySelector('.loader');
   if (loader && root.classList.contains('is-loading')) {
@@ -174,7 +174,6 @@
     nameEl.innerHTML = nameEl.textContent.split('').map(function (ch, k) {
       return ch === ' ' ? '<span class="sp"> </span>' : '<span style="--i:' + k + '">' + ch + '</span>';
     }).join('');
-    try { sessionStorage.setItem('ll-intro', '1'); } catch (e) {}
     var t0 = performance.now();
     var MIN = 1900;           // letters (~1.1s) plus a short hold
     var loaded = document.readyState === 'complete';

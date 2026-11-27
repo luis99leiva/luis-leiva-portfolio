@@ -1232,3 +1232,9 @@ html.is-loading .loader {
 .loader.out { transform: translateY(-100%); }
 .loader.out .loader-name { transform: translateY(40vh); opacity: 0; }
 @keyframes loader-failsafe { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) {          /* calmer version: plain fades, no blur or sliding */
+  .loader-name span { filter: none; transform: none; }
+  html.is-loading .loader { transition: opacity .6s ease; }
+  .loader.out { transform: none; opacity: 0; }
+  .loader.out .loader-name { transform: none; }
+}
