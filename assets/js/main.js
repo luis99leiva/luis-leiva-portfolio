@@ -142,25 +142,59 @@
   });
 
   // Reveal on scroll; blocks that enter together are staggered top to bottom, left to right
-  var targets = document.querySelectorAll('.reveal, .split, .num');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.filter(function (e) { return e.isIntersecting; })
-        .sort(function (a, b) { return (a.boundingClientRect.top - b.boundingClientRect.top) || (a.boundingClientRect.left - b.boundingClientRect.left); })
-        .forEach(function (e, i) {
-          var el = e.target;
-          io.unobserve(el);
-          if (el.classList.contains('num')) { countUp(el); return; }
-          if (i && el.classList.contains('reveal')) {
-            el.style.transitionDelay = (i * 0.1) + 's';
-            setTimeout(function () { el.style.transitionDelay = ''; }, i * 100 + 1200);
-          }
-          el.classList.add('in');
-        });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
-    targets.forEach(function (el) { io.observe(el); });
+  var startReveals = function () {
+    var targets = document.querySelectorAll('.reveal, .split, .num');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.filter(function (e) { return e.isIntersecting; })
+          .sort(function (a, b) { return (a.boundingClientRect.top - b.boundingClientRect.top) || (a.boundingClientRect.left - b.boundingClientRect.left); })
+          .forEach(function (e, i) {
+            var el = e.target;
+            io.unobserve(el);
+            if (el.classList.contains('num')) { countUp(el); return; }
+            if (i && el.classList.contains('reveal')) {
+              el.style.transitionDelay = (i * 0.1) + 's';
+              setTimeout(function () { el.style.transitionDelay = ''; }, i * 100 + 1200);
+            }
+            el.classList.add('in');
+          });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+      targets.forEach(function (el) { io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('in'); });
+    }
+  };
+
+  // Intro loader: the name writes itself in, holds, then the panel lifts off the page.
+  // Plays once per browser session; the inline head script decides (and skips it for reduced motion).
+  var root = document.documentElement;
+  var loader = document.querySelector('.loader');
+  if (loader && root.classList.contains('is-loading')) {
+    var nameEl = loader.querySelector('.loader-name');
+    nameEl.innerHTML = nameEl.textContent.split('').map(function (ch, k) {
+      return ch === ' ' ? '<span class="sp"> </span>' : '<span style="--i:' + k + '">' + ch + '</span>';
+    }).join('');
+    try { sessionStorage.setItem('ll-intro', '1'); } catch (e) {}
+    var t0 = performance.now();
+    var MIN = 1900;           // letters (~1.1s) plus a short hold
+    var loaded = document.readyState === 'complete';
+    var done = false;
+    var exit = function () {
+      if (done) return; done = true;
+      loader.classList.add('out');
+      setTimeout(startReveals, 350);          // hero animates in while the panel is still lifting
+      setTimeout(function () { root.classList.remove('is-loading'); loader.remove(); }, 1150);
+    };
+    var tryExit = function () {
+      var wait = Math.max(0, MIN - (performance.now() - t0));
+      setTimeout(exit, wait);
+    };
+    requestAnimationFrame(function () { loader.classList.add('play'); });
+    if (loaded) tryExit(); else window.addEventListener('load', tryExit);
+    setTimeout(exit, 4500);                  // never hold the page longer than this
   } else {
-    targets.forEach(function (el) { el.classList.add('in'); });
+    if (loader) loader.remove();
+    startReveals();
   }
 
   // Services list: switch the panel text

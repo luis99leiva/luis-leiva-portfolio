@@ -1205,3 +1205,30 @@ html.lb-open { overflow: hidden; }
 
 /* four facts instead of five, with the usual smaller-screen columns */
 @media (min-width: 810px) { .cs-meta.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- intro loader (first visit per session) ---------- */
+.loader { display: none; }
+html.is-loading { overflow: hidden; }
+html.is-loading .loader {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center;
+  background: var(--band);
+  transition: transform 1s cubic-bezier(.76, 0, .24, 1);
+  animation: loader-failsafe 0s 7s forwards;   /* if the script never runs, get out of the way */
+}
+.loader-name {
+  font-family: var(--serif); font-weight: 400; color: var(--ink);
+  font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -0.035em;
+  white-space: nowrap;
+  transition: transform 1s cubic-bezier(.76, 0, .24, 1), opacity .6s var(--ease);
+}
+.loader-name span { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(.18em); }
+.loader-name .sp { width: .28em; }
+.loader.play .loader-name span {
+  opacity: 1; filter: blur(0); transform: none;
+  transition: opacity .7s var(--ease), filter .8s var(--ease), transform .8s var(--ease);
+  transition-delay: calc(var(--i) * 55ms + 150ms);
+}
+.loader.out { transform: translateY(-100%); }
+.loader.out .loader-name { transform: translateY(40vh); opacity: 0; }
+@keyframes loader-failsafe { to { visibility: hidden; } }
